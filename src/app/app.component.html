@@ -1,13 +1,1 @@
-<!--make a template reference using #-->
-<div class="container m-2">
-
-  <h1>{{title}}</h1>
-  <input [value]="'title'" [disabled]="!isShown" />
-  <br><br>
-  <input [value]="'Rachid Benkitou'" (keyup)="keyUp(inputTitle.value)"  #inputTitle />
-  <br><br>
-
-  <button (click)="showInput()">{{title}}</button>
-
-
-</div>
+<router-outlet></router-outlet>
