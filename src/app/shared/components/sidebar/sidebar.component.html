@@ -1,1 +1,12 @@
-<p>sidebar works!</p>
+<div class="sidenav-header">
+  <img width="60" height="60" src="https://shorturl.at/jlDFW" alt="Image not working"/>
+  <div class="header-text">
+    <p>Rachid Benkitou</p>
+  </div>
+</div>
+<mat-nav-list>
+  <a mat-list-item *ngFor="let item of menuItems()">
+    <mat-icon matListItemIcon>{{item.icon}}</mat-icon>
+    <span matListItemTitle>{{item.label}}</span>
+  </a>
+</mat-nav-list>
