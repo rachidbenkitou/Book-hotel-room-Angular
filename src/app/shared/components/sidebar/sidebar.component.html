@@ -1,12 +1,84 @@
-<div class="sidenav-header">
-  <img width="60" height="60" src="https://shorturl.at/jlDFW" alt="Image not working"/>
-  <div class="header-text">
-    <p>Rachid Benkitou</p>
-  </div>
-</div>
-<mat-nav-list>
-  <a mat-list-item *ngFor="let item of menuItems()">
-    <mat-icon matListItemIcon>{{item.icon}}</mat-icon>
-    <span matListItemTitle>{{item.label}}</span>
+<!--&lt;!&ndash;<div class="sidenav-header">&ndash;&gt;-->
+<!--&lt;!&ndash;  <img width="60" height="60" src="https://shorturl.at/jlDFW" alt="Image not working"/>&ndash;&gt;-->
+<!--&lt;!&ndash;  <div class="header-text">&ndash;&gt;-->
+<!--&lt;!&ndash;    <p>Rachid Benkitou</p>&ndash;&gt;-->
+<!--&lt;!&ndash;  </div>&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+<!--&lt;!&ndash;<mat-nav-list>&ndash;&gt;-->
+<!--&lt;!&ndash;  <a mat-list-item *ngFor="let item of menuItems()">&ndash;&gt;-->
+<!--&lt;!&ndash;    <mat-icon matListItemIcon>{{item.icon}}</mat-icon>&ndash;&gt;-->
+<!--&lt;!&ndash;    <span matListItemTitle>{{item.label}}</span>&ndash;&gt;-->
+<!--&lt;!&ndash;  </a>&ndash;&gt;-->
+<!--&lt;!&ndash;</mat-nav-list>&ndash;&gt;-->
+
+<!--<div id="myId">-->
+<!--  <div class="sidenav-header">-->
+<!--    <img width="60" height="60" src="https://shorturl.at/jlDFW" alt="Image not working" />-->
+<!--    <div class="header-text">-->
+<!--      <p>Rachid Benkitou</p>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--  <mat-nav-list>-->
+<!--    <a mat-list-item *ngFor="let item of menuItems()">-->
+<!--      <mat-icon matListItemIcon>{{ item.icon }}</mat-icon>-->
+<!--      <span matListItemTitle>{{ item.label }}</span>-->
+<!--    </a>-->
+<!--  </mat-nav-list>-->
+
+<!--</div>-->
+
+<!-- SIDEBAR -->
+<section id="sidebar" [ngClass]="status ? 'hide' : ''">
+  <a href="#" class="brand">
+    <i class='bx bxs-smile'></i>
+    <span class="text">AdminHub</span>
   </a>
-</mat-nav-list>
+  <ul class="side-menu top">
+    <li class="active">
+      <a href="#">
+        <i class='bx bxs-dashboard' ></i>
+        <span class="text">Dashboard</span>
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <i class='bx bxs-shopping-bag-alt' ></i>
+        <span class="text">My Store</span>
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <i class='bx bxs-doughnut-chart' ></i>
+        <span class="text">Analytics</span>
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <i class='bx bxs-message-dots' ></i>
+        <span class="text">Message</span>
+      </a>
+    </li>
+
+    <li>
+      <a href="#">
+        <i class='bx bxs-group' ></i>
+        <span class="text">Team</span>
+      </a>
+    </li>
+  </ul>
+  <ul class="side-menu">
+    <li>
+      <a href="#">
+        <i class='bx bxs-cog' ></i>
+        <span class="text">Settings</span>
+      </a>
+    </li>
+    <li>
+      <a href="#" class="logout">
+        <i class='bx bxs-log-out-circle' ></i>
+        <span class="text">Logout</span>
+      </a>
+    </li>
+  </ul>
+</section>
+<!-- SIDEBAR -->
