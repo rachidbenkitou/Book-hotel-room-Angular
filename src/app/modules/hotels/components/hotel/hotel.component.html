@@ -20,64 +20,61 @@
 
 <div class="table-data">
   <div class="order">
-    <div class="head">
-      <h3>Recent Orders</h3>
-      <i class='bx bx-search'></i>
-      <i class='bx bx-filter'></i>
-    </div>
-    <table>
-      <ng-container class="mat-elevation-z8">
-        <table mat-table [dataSource]="dataSource" class="rounded-table">
+      <ng-container class="main-body">
 
-          <!-- Position Column -->
-          <ng-container matColumnDef="id">
-            <th mat-header-cell *matHeaderCellDef> No.</th>
-            <td mat-cell *matCellDef="let element"> {{element?.id}} </td>
-          </ng-container>
+        <div class="table-container">
+          <table mat-table [dataSource]="dataSource" matSort>
 
-          <!-- Name Column -->
-          <ng-container matColumnDef="name">
-            <th mat-header-cell *matHeaderCellDef> Name</th>
-            <td mat-cell *matCellDef="let element"> {{element?.name}} </td>
-          </ng-container>
+            <!-- ID Column -->
+            <ng-container matColumnDef="id">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+              <td mat-cell *matCellDef="let row"> {{row.id}} </td>
+            </ng-container>
 
-          <!-- Weight Column -->
-          <ng-container matColumnDef="address">
-            <th mat-header-cell *matHeaderCellDef> Address</th>
-            <td mat-cell *matCellDef="let element"> {{element?.address}} </td>
-          </ng-container>
-          <!-- Symbol Column -->
-          <ng-container matColumnDef="city">
-            <th mat-header-cell *matHeaderCellDef> Description</th>
-            <td mat-cell *matCellDef="let element"> {{element?.description}} </td>
-          </ng-container>
+            <!-- Progress Column -->
+            <ng-container matColumnDef="name">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+              <td mat-cell *matCellDef="let row"> {{row.name}}</td>
+            </ng-container>
 
-          <ng-container matColumnDef="description">
-            <th mat-header-cell *matHeaderCellDef> City Name</th>
-            <td mat-cell *matCellDef="let element"> {{element?.cityName}} </td>
-          </ng-container>
+            <ng-container matColumnDef="address">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Address </th>
+              <td mat-cell *matCellDef="let row"> {{row.address}}</td>
+            </ng-container>
 
-          <ng-container matColumnDef="actions">
-            <th mat-header-cell *matHeaderCellDef> Action</th>
-            <td mat-cell *matCellDef="let element">
-              <button mat-icon-button color="primary">
-                <mat-icon>edit</mat-icon>
-              </button>
-              <button mat-icon-button color="warn">
-                <mat-icon>delete</mat-icon>
-              </button>
-            </td>
-          </ng-container>
+            <ng-container matColumnDef="city">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> City </th>
+              <td mat-cell *matCellDef="let row"> {{row.cityName}}</td>
+            </ng-container>
 
+            <ng-container matColumnDef="description">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> dob </th>
+              <td mat-cell *matCellDef="let row"> {{row.description}}</td>
+            </ng-container>
 
-          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-        </table>
+            <ng-container matColumnDef="actions">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>
+              <td mat-cell *matCellDef="let row">
+                <button mat-icon-button color="primary">
+                  <mat-icon>edit</mat-icon>
+                </button>
+                <button mat-icon-button color="warn">
+                  <mat-icon>delete</mat-icon>
+                </button>
+              </td>
+            </ng-container>
 
-        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons
-                       aria-label="Select page of periodic elements">
-        </mat-paginator>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+            <!-- Row shown when there is no matching data. -->
+            <tr class="mat-row" *matNoDataRow>
+              <td class="mat-cell" colspan="4">No data matching the filter"</td>
+            </tr>
+          </table>
+
+          <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+        </div>
       </ng-container>
-    </table>
   </div>
 </div>

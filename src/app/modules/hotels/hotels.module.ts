@@ -9,6 +9,8 @@ import {HttpClientModule} from "@angular/common/http";
 import {HotelService} from "./services/hotel.service";
 import {MatIconModule} from "@angular/material/icon";
 import {MatButtonModule} from "@angular/material/button";
+import {MatInputModule} from "@angular/material/input";
+import {MatSortModule} from "@angular/material/sort";
 
 
 @NgModule({
@@ -22,7 +24,9 @@ import {MatButtonModule} from "@angular/material/button";
     MatTableModule,
     MatPaginatorModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    MatInputModule,
+    MatSortModule
   ],
   providers: [HotelService],
 
