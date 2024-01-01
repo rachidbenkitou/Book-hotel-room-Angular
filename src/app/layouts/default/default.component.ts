@@ -39,7 +39,7 @@ export class DefaultComponent implements OnInit {
     {
       icon: 'bx bxs-shopping-bag-alt',
       label: 'Hotels',
-      route: 'hotel'
+      route: 'hotel-list'
     }
   ])
 

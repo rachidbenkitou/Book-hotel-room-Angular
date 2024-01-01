@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {HotelComponent} from './components/hotel/hotel.component';
+import {HotelComponent} from './components/hotel-list/hotel-list.component';
 import {RouterModule} from "@angular/router";
 import {HotelRoutes} from "./hotel.routing";
 import {MatTableModule} from "@angular/material/table";
@@ -11,11 +11,16 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatButtonModule} from "@angular/material/button";
 import {MatInputModule} from "@angular/material/input";
 import {MatSortModule} from "@angular/material/sort";
+import { HotelAddEditComponent } from './components/hotel-add-edit/hotel-add-edit.component';
+import { HotelSearchComponent } from './components/hotel-search/hotel-search.component';
+import {MatSelectModule} from "@angular/material/select";
 
 
 @NgModule({
   declarations: [
-    HotelComponent
+    HotelComponent,
+    HotelAddEditComponent,
+    HotelSearchComponent
   ],
   imports: [
     CommonModule,
@@ -26,7 +31,8 @@ import {MatSortModule} from "@angular/material/sort";
     MatIconModule,
     MatButtonModule,
     MatInputModule,
-    MatSortModule
+    MatSortModule,
+    MatSelectModule
   ],
   providers: [HotelService],
 

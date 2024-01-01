@@ -1,9 +1,10 @@
 import {Routes} from "@angular/router";
-import {HotelComponent} from "./components/hotel/hotel.component";
+import {HotelComponent} from "./components/hotel-list/hotel-list.component";
+import {HotelSearchComponent} from "./components/hotel-search/hotel-search.component";
 
 export const HotelRoutes: Routes = [
   {
     path: '',
-    component: HotelComponent,
+    component: HotelSearchComponent,
   }
 ];

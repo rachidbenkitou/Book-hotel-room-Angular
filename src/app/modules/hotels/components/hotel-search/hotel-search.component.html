@@ -1,0 +1,54 @@
+<div class="head-title">
+  <div class="left">
+    <h1>Hotels</h1>
+    <ul class="breadcrumb">
+      <li>
+        <a href="#">Hotels</a>
+      </li>
+      <li><i class='bx bx-chevron-right'></i></li>
+      <li>
+        <a class="active" href="#">Home</a>
+      </li>
+    </ul>
+  </div>
+  <a href="#" class="btn-download">
+    <mat-icon>add</mat-icon>
+    <span class="text">Add new hotel</span>
+  </a>
+</div>
+
+<div class="table-data">
+  <div class="order">
+    <form class="example-form">
+      <mat-form-field class="example-full-width">
+        <mat-label>Leave a comment</mat-label>
+        <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Leave a comment</mat-label>
+        <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Leave a comment</mat-label>
+        <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
+      </mat-form-field>
+
+      <h4>Basic mat-select</h4>
+      <mat-form-field>
+        <mat-label>Favorite food</mat-label>
+        <mat-select>
+
+        </mat-select>
+      </mat-form-field>
+    </form>
+  </div>
+</div>
+
+<div class="table-data">
+  <div class="order">
+    <app-hotel-list [tableProperties]="tableProperties"></app-hotel-list>
+  </div>
+</div>
+

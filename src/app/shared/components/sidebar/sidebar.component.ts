@@ -18,32 +18,32 @@ export class SidebarComponent {
       route: 'dashboard'
     },
     {
-      icon: 'hotel',
+      icon: 'hotel-list',
       label: 'Hotels',
       route: 'hotels'
     },
     {
-      icon: 'hotel',
+      icon: 'hotel-list',
       label: 'Hotels',
       route: 'hotels'
     },
     {
-      icon: 'hotel',
+      icon: 'hotel-list',
       label: 'Hotels',
       route: 'hotels'
     },
     {
-      icon: 'hotel',
+      icon: 'hotel-list',
       label: 'Hotels',
       route: 'hotels'
     },
     {
-      icon: 'hotel',
+      icon: 'hotel-list',
       label: 'Hotels',
       route: 'hotels'
     },
     {
-      icon: 'hotel',
+      icon: 'hotel-list',
       label: 'Hotels',
       route: 'hotels'
     }

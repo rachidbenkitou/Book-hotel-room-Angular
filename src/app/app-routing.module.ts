@@ -13,7 +13,7 @@ const routes: Routes = [
         loadChildren: () => import('./modules/dashboard/dashboard.module').then(m => m.DashboardModule)
       },
       {
-        path: 'hotel',
+        path: 'hotel-list',
         loadChildren: () => import('./modules/hotels/hotels.module').then(m => m.HotelsModule)
       }
     ]
