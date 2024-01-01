@@ -8,7 +8,6 @@ import {Component, Input, OnInit} from '@angular/core';
 export class HotelComponent implements OnInit {
   displayedColumns: string[] = ['id', 'name', 'address', 'city', 'description', "actions"];
   @Input() tableProperties!: any;
-
   ngOnInit(): void {
   }
 }

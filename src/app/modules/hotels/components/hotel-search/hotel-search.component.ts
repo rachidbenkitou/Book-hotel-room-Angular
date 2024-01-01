@@ -5,10 +5,9 @@ import {HotelService} from "../../services/hotel.service";
 import {MatPaginator} from "@angular/material/paginator";
 import {MatSort} from "@angular/material/sort";
 
-export interface TableProperties {
-  dataSource: MatTableDataSource<Hotel>;
-  paginator: MatPaginator;
-  sort: MatSort;
+interface Food {
+  value: string;
+  viewValue: string;
 }
 
 @Component({
@@ -17,6 +16,13 @@ export interface TableProperties {
   styleUrls: ['./hotel-search.component.css']
 })
 export class HotelSearchComponent implements OnInit {
+
+  foods: Food[] = [
+    {value: 'steak-0', viewValue: 'Steak'},
+    {value: 'pizza-1', viewValue: 'Pizza'},
+    {value: 'tacos-2', viewValue: 'Tacos'},
+  ];
+
 
   tableProperties!: any;
 
