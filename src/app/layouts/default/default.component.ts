@@ -7,7 +7,12 @@ import {Component, OnInit} from '@angular/core';
 })
 export class DefaultComponent implements OnInit {
   sideBarOpen = true;
-
+//Sidebar toggle show hide function
+  status = false;
+  addToggle()
+  {
+    this.status = !this.status;
+  }
   constructor() {
   }
 

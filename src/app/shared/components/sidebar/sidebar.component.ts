@@ -1,4 +1,4 @@
-import {Component, OnInit, signal} from '@angular/core';
+import {Component, signal} from '@angular/core';
 export type MenuItem= {
   icon: string;
   label: string;
@@ -9,16 +9,8 @@ export type MenuItem= {
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.scss']
 })
-export class SidebarComponent implements OnInit{
-  ngOnInit(): void {
-  }
+export class SidebarComponent {
 
-  //Sidebar toggle show hide function
-  status = false;
-  addToggle()
-  {
-    this.status = !this.status;
-  }
   menuItems= signal<MenuItem[]>([
     {
       icon: 'dashboard',

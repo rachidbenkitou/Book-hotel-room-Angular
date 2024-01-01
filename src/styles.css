@@ -1,7 +1,13 @@
-/*!* You can add global styles to this file, and also import other style files *!*/
+/* You can add global styles to this file, and also import other style files */
 
-/*html, body { height: 100%; }*/
-/*body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }*/
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
 
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@400;500;600;700&display=swap');
 
@@ -68,11 +74,7 @@ body {
 }
 
 #sidebar::-webkit-scrollbar {
-  width: 0; /* Hide the scrollbar for webkit browsers (Chrome, Safari, etc.) */
-}
-
-.hide-scrolling::-webkit-scrollbar {
-  width: 0; /* Hide the scrollbar for webkit browsers (Chrome, Safari, etc.) */
+  width: 0
 }
 
 #sidebar.hide {

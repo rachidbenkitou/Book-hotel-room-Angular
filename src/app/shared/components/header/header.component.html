@@ -1,57 +1,36 @@
-<!--<mat-toolbar color="primary">-->
-<!--  <mat-toolbar-row>-->
-<!--    <button mat-icon-button (click)="toggleSideBar()">-->
-<!--      <mat-icon>menu</mat-icon>-->
-<!--    </button>-->
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <button mat-icon-button (click)="toggleSideBar()">
+      <mat-icon>menu</mat-icon>
+    </button>
 
-<!--    <span> APP LOGO </span>-->
+    <span> APP LOGO </span>
 
-<!--    <div fxFlex fxLayout="row" fxLayoutAlign="flex-end">-->
-<!--      <ul fxLayout="row" fxLayoutGap="20px">-->
-<!--        <li>-->
-<!--          <button mat-icon-button>-->
-<!--            <mat-icon>settings</mat-icon>-->
-<!--          </button>-->
-<!--        </li>-->
-<!--        <li>-->
-<!--          <button mat-icon-button>-->
-<!--            <mat-icon>help_outline</mat-icon>-->
-<!--          </button>-->
-<!--        </li>-->
-<!--        <li>-->
-<!--          <button mat-icon-button [matMenuTriggerFor]="menu">-->
-<!--            <mat-icon>person_outline</mat-icon>-->
-<!--          </button>-->
-<!--          <mat-menu #menu="matMenu">-->
-<!--            <button mat-menu-item>-->
-<!--              <mat-icon>exit_to_app</mat-icon>-->
-<!--              Sign out-->
-<!--            </button>-->
-<!--          </mat-menu>-->
+    <div fxFlex fxLayout="row" fxLayoutAlign="flex-end">
+      <ul fxLayout="row" fxLayoutGap="20px">
+        <li>
+          <button mat-icon-button>
+            <mat-icon>settings</mat-icon>
+          </button>
+        </li>
+        <li>
+          <button mat-icon-button>
+            <mat-icon>help_outline</mat-icon>
+          </button>
+        </li>
+        <li>
+          <button mat-icon-button [matMenuTriggerFor]="menu">
+            <mat-icon>person_outline</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item>
+              <mat-icon>exit_to_app</mat-icon>
+              Sign out
+            </button>
+          </mat-menu>
 
-<!--        </li>-->
-<!--      </ul>-->
-<!--    </div>-->
-<!--  </mat-toolbar-row>-->
-<!--</mat-toolbar>-->
-
-
-<!-- NAVBAR -->
-<nav>
-  <i  class='bx bx-menu' ></i>
-  <a href="#" class="nav-link">Categories</a>
-  <form action="#">
-    <div class="form-input">
-      <input type="search" placeholder="Search...">
-      <button type="button" class="search-btn"><i class='bx bx-search' ></i></button>
+        </li>
+      </ul>
     </div>
-  </form>
-  <a href="#" class="notification">
-    <i class='bx bxs-bell' ></i>
-    <span class="num">8</span>
-  </a>
-  <a href="#" class="profile">
-    <img src="https://secure.gravatar.com/avatar/d09eaad01aea86c51b4f892b4f8abf6f?s=100&d=wavatar&r=g">
-  </a>
-</nav>
-<!-- NAVBAR -->
+  </mat-toolbar-row>
+</mat-toolbar>
