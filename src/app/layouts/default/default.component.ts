@@ -1,5 +1,10 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, signal} from '@angular/core';
 
+export type MenuItem= {
+  icon: string;
+  label: string;
+  route: string;
+}
 @Component({
   selector: 'app-default',
   templateUrl: './default.component.html',
@@ -23,5 +28,19 @@ export class DefaultComponent implements OnInit {
   sideBarToggler($event: any) {
     this.sideBarOpen = !this.sideBarOpen;
   }
+
+
+  menuItems= signal<MenuItem[]>([
+    {
+      icon: 'bx bxs-dashboard',
+      label: 'Dashboard',
+      route: 'dashboard'
+    },
+    {
+      icon: 'bx bxs-shopping-bag-alt',
+      label: 'Hotels',
+      route: 'hotel'
+    }
+  ])
 
 }

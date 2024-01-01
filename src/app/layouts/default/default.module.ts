@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {DefaultComponent} from "./default.component";
-import {RouterOutlet} from "@angular/router";
+import {RouterLink, RouterOutlet} from "@angular/router";
 import {SharedModule} from "../../shared/shared.module";
 import {MatSidenavModule} from "@angular/material/sidenav";
 
@@ -17,7 +17,8 @@ import {MatSidenavModule} from "@angular/material/sidenav";
     CommonModule,
     RouterOutlet,
     SharedModule,
-    MatSidenavModule
+    MatSidenavModule,
+    RouterLink
   ]
 })
 export class DefaultModule {
