@@ -3,6 +3,7 @@ export interface Hotel {
   name: string;
   address: string;
   description: string;
+  dateCreated: Date;
   cityId: number;
   cityName: string;
 }

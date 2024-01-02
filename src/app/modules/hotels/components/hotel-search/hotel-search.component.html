@@ -11,32 +11,31 @@
       </li>
     </ul>
   </div>
-  <a href="#" class="btn-download">
+  <a (click)="openAddEditHotelForm()" class="btn-download pointerCursor">
     <mat-icon>add</mat-icon>
     <span class="text">Add new hotel</span>
   </a>
 </div>
 
 <div class="table-data">
-  <div class="order">
-    <form class="example-form">
-      <mat-form-field class="example-full-width">
-        <mat-label>Leave a comment</mat-label>
-        <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
+  <div class="order" fxLayout="row" fxLayoutAlign="center">
+    <div fxLayout.xs="row" fxLayoutGap="10px" class="example-form mat-form mat-margin">
+      <mat-form-field class="mat-form-field mat-margin-bottom idFieldWidth" appearance="outline">
+        <mat-label>Input</mat-label>
+        <input matInput>
       </mat-form-field>
 
-      <mat-form-field class="example-full-width">
-        <mat-label>Leave a comment</mat-label>
-        <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
+      <mat-form-field class="mat-form-field mat-margin-bottom" appearance="outline">
+        <mat-label>Input</mat-label>
+        <input matInput>
       </mat-form-field>
 
-      <mat-form-field class="example-full-width">
-        <mat-label>Leave a comment</mat-label>
-        <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
+      <mat-form-field class="mat-form-field mat-margin-bottom" appearance="outline">
+        <mat-label>Input</mat-label>
+        <input matInput>
       </mat-form-field>
 
-      <h4>Basic mat-select</h4>
-      <mat-form-field>
+      <mat-form-field class="mat-form-field" appearance="outline">
         <mat-label>Favorite food</mat-label>
         <mat-select>
           <mat-option *ngFor="let food of foods" [value]="food.value">
@@ -45,8 +44,13 @@
         </mat-select>
       </mat-form-field>
 
+      <button mat-raised-button color="primary" mat-button class="mat-margin-start">
+        <mat-icon>search</mat-icon>
+        Search
+      </button>
+    </div>
 
-    </form>
+
   </div>
 </div>
 
