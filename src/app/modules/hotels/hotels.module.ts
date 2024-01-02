@@ -19,13 +19,15 @@ import {MatDialogActions, MatDialogClose, MatDialogContent, MatDialogTitle} from
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatRadioModule} from "@angular/material/radio";
 import {MatProgressBarModule} from "@angular/material/progress-bar";
+import {AddButtonComponent} from "../../shared/components/add-button/add-button.component";
 
 
 @NgModule({
   declarations: [
     HotelComponent,
     HotelAddEditComponent,
-    HotelSearchComponent
+    HotelSearchComponent,
+
   ],
   imports: [
     CommonModule,
@@ -46,10 +48,10 @@ import {MatProgressBarModule} from "@angular/material/progress-bar";
     MatDialogContent,
     MatDialogTitle,
     MatProgressBarModule,
+    AddButtonComponent,
 
   ],
   providers: [HotelService],
-
 })
 export class HotelsModule {
 }

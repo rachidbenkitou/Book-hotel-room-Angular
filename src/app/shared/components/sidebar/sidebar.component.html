@@ -1,12 +1,37 @@
-<div class="sidenav-header">
-  <img width="60" height="60" src="https://shorturl.at/jlDFW" alt="Image not working"/>
-  <div class="header-text">
-    <p>Rachid Benkitou</p>
+<!-- ============================================================== -->
+<!-- Left Sidebar - style you can find in sidebar.scss  -->
+<!-- ============================================================== -->
+<aside class="left-sidebar" data-sidebarbg="skin6">
+  <!-- Sidebar scroll-->
+  <div class="scroll-sidebar">
+    <!-- Sidebar navigation-->
+    <nav class="sidebar-nav">
+      <ul id="sidebarnav">
+        <br/>
+        <br/>
+        <!-- User Profile-->
+        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                     href="index.html" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span
+          class="hide-menu">Dashboard</span></a></li>
+        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                     href="pages-profile.html" aria-expanded="false"><i
+          class="mdi mdi-account-network"></i><span class="hide-menu">Profile</span></a></li>
+        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                     href="table-basic.html" aria-expanded="false"><i class="mdi mdi-border-all"></i><span
+          class="hide-menu">Table</span></a></li>
+        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                     href="icon-material.html" aria-expanded="false"><i class="mdi mdi-face"></i><span
+          class="hide-menu">Icon</span></a></li>
+        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                     href="starter-kit.html" aria-expanded="false"><i class="mdi mdi-file"></i><span
+          class="hide-menu">Blank</span></a></li>
+        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                     href="error-404.html" aria-expanded="false"><i class="mdi mdi-alert-outline"></i><span
+          class="hide-menu">404</span></a></li>
+      </ul>
+
+    </nav>
+    <!-- End Sidebar navigation -->
   </div>
-</div>
-<mat-nav-list>
-  <a mat-list-item *ngFor="let item of menuItems()">
-    <mat-icon matListItemIcon>{{item.icon}}</mat-icon>
-    <span matListItemTitle>{{item.label}}</span>
-  </a>
-</mat-nav-list>
+  <!-- End Sidebar scroll-->
+</aside>

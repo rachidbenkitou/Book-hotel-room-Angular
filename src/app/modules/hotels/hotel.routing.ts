@@ -1,10 +1,21 @@
 import {Routes} from "@angular/router";
-import {HotelComponent} from "./components/hotel-list/hotel-list.component";
 import {HotelSearchComponent} from "./components/hotel-search/hotel-search.component";
+import {HotelsPageComponent} from "./containers/hotels-page/hotels-page.component";
 
 export const HotelRoutes: Routes = [
   {
     path: '',
-    component: HotelSearchComponent,
+    component: HotelsPageComponent,
+    children: [
+      {
+        path: '',
+        pathMatch: 'full',
+        redirectTo: 'search'
+      },
+      {
+        path: 'search',
+        component: HotelSearchComponent,
+      },
+    ]
   }
 ];

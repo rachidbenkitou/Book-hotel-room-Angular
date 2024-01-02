@@ -1,63 +1,36 @@
-<!-- SIDEBAR -->
-<section id="sidebar" [ngClass]="status ? 'hide' : ''">
-  <a href="#" class="brand">
-    <i class='bx bxs-smile'></i>
-    <span class="text">AdminHub</span>
-  </a>
-  <ul class="side-menu top">
-    <li *ngFor="let item of menuItems()">
-      <a [routerLink]="item.route" >
-        <i [ngClass]="item.icon" ></i>
-        <span class="text">{{item.label}}</span>
-      </a>
-    </li>
-  </ul>
-  <ul class="side-menu">
-    <li>
-      <a href="#">
-        <i class='bx bxs-cog'></i>
-        <span class="text">Settings</span>
-      </a>
-    </li>
-    <li>
-      <a href="#" class="logout">
-        <i class='bx bxs-log-out-circle' ></i>
-        <span class="text">Logout</span>
-      </a>
-    </li>
-  </ul>
-</section>
-<!-- SIDEBAR -->
+<div id="main-wrapper" data-layout="vertical" data-navbarbg="skin5" data-sidebartype="full"
+     data-sidebar-position="absolute" data-header-position="absolute" data-boxed-layout="full">
+  <app-header></app-header>
 
+  <app-sidebar></app-sidebar>
 
-
-<!-- CONTENT -->
-<section id="content">
-  <!-- NAVBAR -->
-  <nav>
-    <i (click)="addToggle()" class='bx bx-menu' ></i>
-    <a href="#" class="nav-link">Categories</a>
-    <form action="#">
-      <div class="form-input">
-        <input type="search" placeholder="Search...">
-        <button type="button" class="search-btn"><i class='bx bx-search' ></i></button>
+  <div class="page-wrapper">
+    <!-- ============================================================== -->
+    <!-- Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <app-add-button></app-add-button>
+    <!-- ============================================================== -->
+    <!-- End Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
+    <div class="container-fluid">
+      <!-- ============================================================== -->
+      <!-- Start Page Content -->
+      <!-- ============================================================== -->
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-body">
+              <router-outlet></router-outlet>
+            </div>
+          </div>
+        </div>
       </div>
-    </form>
-    <a href="#" class="notification">
-      <i class='bx bxs-bell' ></i>
-      <span class="num">8</span>
-    </a>
-    <a href="#" class="profile">
-      <img src="https://secure.gravatar.com/avatar/d09eaad01aea86c51b4f892b4f8abf6f?s=100&d=wavatar&r=g">
-    </a>
-  </nav>
-  <!-- NAVBAR -->
 
-  <!-- MAIN -->
-  <main>
+    </div>
+    <app-footer></app-footer>
+  </div>
+</div>
 
-    <router-outlet></router-outlet>
-  </main>
-  <!-- MAIN -->
-</section>
-<!-- CONTENT -->
