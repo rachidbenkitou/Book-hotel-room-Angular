@@ -15,6 +15,11 @@ export const HotelRoutes: Routes = [
       {
         path: 'search',
         component: HotelSearchComponent,
+        data: {
+          title: 'Hotel management',
+          page: 'hotel',
+          addButton: true
+        },
       },
     ]
   }

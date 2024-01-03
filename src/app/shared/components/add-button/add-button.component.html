@@ -1,23 +1,23 @@
 <div class="page-breadcrumb">
-  <div class="row align-items-center">
-    <div class="col-5">
-      <h4 class="page-title">Starter Page</h4>
-      <div class="d-flex align-items-center">
-        <nav aria-label="breadcrumb">
-          <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Library</li>
-          </ol>
-        </nav>
-      </div>
+  <div class="row pb-0">
+    <div class="col-6 align-self-center">
+      <h1 class="page-title">{{ pageInfo['title'] }}</h1>
     </div>
-    <div class="col-7">
-      <div class="text-end upgrade-btn">
-        <a href="https://www.wrappixel.com/templates/xtremeadmin/" class="btn btn-info text-white text-center addButtonCustom" target="_blank">
-          Add new
-        </a>
-      </div>
 
+    <div [ngStyle]="{'visibility': showAddButton ? 'visible' : 'hidden'}"  class="col-6 align-self-center float-right">
+
+      <button (click)="onAdd()" class="btn btn-cyan rounded-pill py-md-2 ml-auto d-inline-block" style="float: right;">
+
+        <strong class="fas fa-plus font-14 mr-1 text-white"></strong>
+        <span class="ml-1 text-white font-weight-bold">{{addButtonText}}</span>
+      </button>
+
+      <button *ngIf="showSecondAddButton" (click)="onSecondAdd()" class="btn btn-purple rounded-pill py-md-2 ml-auto mr-2 d-inline-block" style="float: right;">
+
+        <strong class="fas fa-plus font-12 mr-1 text-white"></strong>
+        <span class="ml-1 text-white">Rendez-vous</span>
+      </button>
     </div>
   </div>
 </div>
+
