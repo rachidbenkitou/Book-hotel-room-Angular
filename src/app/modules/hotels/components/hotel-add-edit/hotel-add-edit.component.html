@@ -3,40 +3,18 @@
 </div>
 <form [formGroup]="empForm" (ngSubmit)="onFormSubmit()">
   <div mat-dialog-content class="content">
-    <div class="row">
-      <mat-form-field appearance="outline">
-        <mat-label>First name</mat-label>
-        <input matInput type="text" placeholder="Ex. Technical">
-      </mat-form-field>
-      <mat-form-field appearance="outline">
-        <mat-label>Last Name</mat-label>
-        <input matInput placeholder="Ex. Babaji">
-      </mat-form-field>
+
+
+    <div class="card flex flex-wrap gap-3 p-fluid">
+      <div class="flex-auto">
+        <label class="font-bold block mb-2"> Icon Display </label>
+        <p-calendar [(ngModel)]="date2" [iconDisplay]="'input'" [showIcon]="true" inputId="icondisplay"></p-calendar>
+      </div>
     </div>
-
-
-    <div class="row">
-
-      <mat-progress-bar mode="determinate" value="40"></mat-progress-bar>
-
-
-
-
-
-      <mat-form-field appearance="outline">
-        <mat-label>Last Name</mat-label>
-        <input matInput placeholder="Ex. Babaji">
-      </mat-form-field>
-
-
-    </div>
-
-
-
 
   </div>
   <div mat-dialog-actions class="action">
-    <button mat-raised-button type="button" [mat-dialog-close]="false">Cancel</button>
-    <button mat-raised-button color="primary" type="submit">Save</button>
+    <p-button type="submit" label="Cancel"></p-button>
+    <p-button type="cancel" label="Save"></p-button>
   </div>
 </form>

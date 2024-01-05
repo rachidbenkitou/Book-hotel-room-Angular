@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {RouterOutlet} from "@angular/router";
 import {ActionsService} from "../../../../shared/services/actions.service";
 import {Subscription} from "rxjs";
+import {HotelService} from "../../services/hotel.service";
 
 @Component({
   selector: 'app-hotels-page',
@@ -17,14 +18,27 @@ export class HotelsPageComponent {
 
   constructor(
     private actionsService: ActionsService,
+    private hotelService: HotelService,
   ) {
 
     this.clickActionSubscription = this.actionsService.getAddEvent().subscribe((ev) => {
 
       if (ev === 'hotel') {
-        alert("Hello I am Hotel")
+        //this.openAddEditEmpForm();
       }
     })
   }
+
+
+  // openAddEditEmpForm() {
+  //   const dialogRef = this._dialog.open(HotelAddEditComponent);
+  //   dialogRef.afterClosed().subscribe({
+  //     next: (val) => {
+  //       if (val) {
+  //         //this.getEmployeeList();
+  //       }
+  //     },
+  //   });
+  // }
 
 }

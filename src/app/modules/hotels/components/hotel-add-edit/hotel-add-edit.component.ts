@@ -4,9 +4,14 @@ import {FormBuilder, FormGroup} from "@angular/forms";
 @Component({
   selector: 'app-hotel-add-edit',
   templateUrl: './hotel-add-edit.component.html',
-  styleUrls: ['./hotel-add-edit.component.scss']
+  styleUrls: ['./hotel-add-edit.component.scss'],
 })
 export class HotelAddEditComponent {
+  date1: Date | undefined;
+
+  date2: Date | undefined;
+
+  date3: Date | undefined;
 
   empForm: FormGroup;
 

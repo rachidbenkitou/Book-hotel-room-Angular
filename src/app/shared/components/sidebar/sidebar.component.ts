@@ -10,7 +10,6 @@ export type MenuItem= {
   styleUrls: ['./sidebar.component.scss']
 })
 export class SidebarComponent {
-
   menuItems= signal<MenuItem[]>([
     {
       icon: 'dashboard',
