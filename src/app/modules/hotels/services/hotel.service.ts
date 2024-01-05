@@ -8,7 +8,7 @@ import {Hotel} from "../models/hotel";
   providedIn: 'root'
 })
 export class HotelService {
-  hotelUrl: string = `${environment.apiUrl}hotels`
+  hotelUrl: string = `${environment.appUrl}hotels`
 
   constructor(private http: HttpClient) {
   }
@@ -17,10 +17,10 @@ export class HotelService {
     if (id != null) {
       params = params.set("id", id);
     }
-    if (name != null && name != "") {
+    if (name != null && name !== "") {
       params = params.set("name", name);
     }
-    if (address != null && address != "") {
+    if (address != null && address !== "") {
       params = params.set("address", address);
     }
     if (cityId != null) {

@@ -8,29 +8,37 @@ import {HotelService} from "./services/hotel.service";
 
 import {HotelAddEditComponent} from './components/hotel-add-edit/hotel-add-edit.component';
 import {HotelSearchComponent} from './components/hotel-search/hotel-search.component';
-import {FlexModule} from "@angular/flex-layout";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {AddButtonComponent} from "../../shared/components/add-button/add-button.component";
-import {CalendarModule} from 'primeng/calendar';
-import {RoomsModule} from "../rooms/rooms.modules";
+import {HotelsPageComponent} from "./containers/hotels-page/hotels-page.component";
+import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
+import {FeatherModule} from "angular-feather";
+import {NgSelectModule} from "@ng-select/ng-select";
+import {SharedComponentsModule} from "../../shared-components/shared-components.module";
+import {NgxDatatableModule} from "@swimlane/ngx-datatable";
+import {ButtonModule} from 'primeng/button';
+
+
 
 @NgModule({
   declarations: [
     HotelComponent,
     HotelAddEditComponent,
     HotelSearchComponent,
+    HotelsPageComponent
 
   ],
   imports: [
+    ButtonModule,
     CommonModule,
     HttpClientModule,
     RouterModule.forChild(HotelRoutes),
-    FlexModule,
     ReactiveFormsModule,
-    AddButtonComponent,
-    CalendarModule,
     FormsModule,
-    RoomsModule
+    NgbModule,
+    FeatherModule,
+    NgSelectModule,
+    SharedComponentsModule,
+    NgxDatatableModule,
   ],
   exports: [HotelComponent],
   providers: [HotelService],

@@ -5,7 +5,7 @@ import { Observable, Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class ActionsService {
-  private subject = new Subject<any>();
+  private subject = new Subject<any>(); 
   private subject2 = new Subject<any>();
   private yearEvent = new Subject<any>();
 
@@ -15,7 +15,7 @@ export class ActionsService {
     this.subject.next(ev);
   }
 
-  getAddEvent(): Observable<any>{
+  getAddEvent(): Observable<any>{ 
     return this.subject.asObservable();
   }
   //EVENT FOR SECOND BUTTON
@@ -23,15 +23,15 @@ export class ActionsService {
     this.subject2.next(ev);
   }
 
-  getSecondAddEvent(): Observable<any>{
+  getSecondAddEvent(): Observable<any>{ 
     return this.subject2.asObservable();
   }
     //EVENT FOR SECOND BUTTON
     sendYearEvent(ev: number) {
       this.yearEvent.next(ev);
     }
-
-    getYearEvent(): Observable<number>{
+  
+    getYearEvent(): Observable<number>{ 
       return this.yearEvent.asObservable();
     }
 
