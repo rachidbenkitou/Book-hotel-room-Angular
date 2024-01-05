@@ -1,2 +1,8 @@
 @import "primeng/resources/themes/lara-light-blue/theme.css";
 @import "primeng/resources/primeng.css";
+@import "primeicons/primeicons.css";
+
+.searchButton{
+  width: 100px;
+  height: 20px;
+}

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {CustomerService} from "../../services/customerservice";
 import {Customer, Representative} from "../../models/customer";
+import {AutoCompleteCompleteEvent} from "primeng/autocomplete";
 
 @Component({
   selector: 'app-table-customers-demo',
@@ -75,4 +76,21 @@ export class TableCustomersDemoComponent {
     }
   }
 
+  // Array of city options
+  cityOptions = [
+    { label: 'City A', value: 'cityA' },
+    { label: 'City B', value: 'cityB' },
+    { label: 'City C', value: 'cityC' },
+    // Add more cities as needed
+  ];
+
+  loading1: boolean = false;
+
+  load() {
+    this.loading1 = true;
+
+    setTimeout(() => {
+      this.loading1 = false
+    }, 2000);
+  }
 }

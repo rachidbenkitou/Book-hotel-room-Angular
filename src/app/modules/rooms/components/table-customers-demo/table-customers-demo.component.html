@@ -1,3 +1,120 @@
+<!--<ng-container>-->
+<!--  <div class="table-header d-flex flex-column mx-auto align-items-center">-->
+<!--    <form class="d-flex justify-content-between align-items-center">-->
+<!--      <div class="form-group search-input m-2">-->
+<!--        <label>ID:</label>-->
+<!--        <div class="input-container">-->
+<!--          <input pInputText type="text" class=" id-input" placeholder="ID" name="id"/>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div class="form-group search-input m-2">-->
+<!--        <label for="name">Name:</label>-->
+<!--        <div class="input-container">-->
+<!--          <input pInputText type="text" id="name" placeholder="Name" name="name"/>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div class="form-group search-input m-2">-->
+<!--        <label for="name">Date:</label>-->
+<!--        <div class="input-container">-->
+<!--          <p-calendar [iconDisplay]="'input'" [showIcon]="true"></p-calendar>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div class="form-group search-input m-2">-->
+<!--        <label for="name">City:</label>-->
+<!--        <div class="input-container">-->
+<!--          <p-dropdown [options]="cityOptions" optionLabel="name" [showClear]="true"-->
+<!--                      placeholder="Select a City"></p-dropdown>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <p-button label="Submit" [loading]="loading" (onClick)="load()" class="searchButton m-2"></p-button>-->
+<!--    </form>-->
+<!--  </div>-->
+<!--</ng-container>-->
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body px-0 py-1">
+
+        <div class="table">
+          <div class="modal-body pt-0">
+            <form novalidate=""  class="search">
+              <div class="form-body">
+                <!-- Row of search items -->
+                <div class="row">
+
+                  <div class="col-md-2 ">
+                    <div class="form-group">
+                      <label for="id">ID</label>
+                      <input type="number" formControlName="id" id="id" class="form-control"
+                             placeholder="Ex. 12"/>
+                    </div>
+                  </div>
+
+                  <div class="col-md-3 px-md-1">
+                    <div class="form-group">
+                      <label for="name">Name</label>
+                      <input type="text" formControlName="name" id="name" class="form-control"
+                             placeholder="Ex. Lenovo thinkpad"/>
+                    </div>
+                  </div>
+
+
+                  <div class="col-md-3 px-md-1">
+                    <div class="form-group">
+                      <label>Category</label>
+                      <ng-select
+                        id="categoryId"
+                        name="categoryId"
+                        [items]="cityOptions"
+                        bindValue="id"
+                        bindLabel="name"
+                        notFoundText="no product found"
+                        placeholder="Choose a category">
+                      </ng-select>
+                    </div>
+                  </div>
+
+
+                  <div class="col-md-2 px-md-1">
+                    <div class="form-group">
+                      <label>Visibility</label>
+                      <ng-select
+                        id="visibility"
+                        name="visibility"
+                        [items]="cityOptions"
+                        bindValue="name"
+                        bindLabel="name"
+                        notFoundText="no element found"
+                        placeholder="Choose type of visibility">
+                      </ng-select>
+                    </div>
+                  </div>
+
+                  <div class="col-md-2 search-actions px-0">
+                    <div class="form-group">
+                      <p-button type="reset" class="btn btn-dark mr-2 button-reset" icon="pi pi-refresh" styleClass="p-button-text"></p-button>
+                      <p-button type="submit" class="btn btn-info button-search" id="find-product-form" icon="pi pi-search" styleClass="p-button-text"></p-button>
+                    </div>
+                  </div>
+
+
+
+                  <!--                  <div class="col-md-2 search-actions px-0">-->
+<!--                    <div class="form-group">-->
+<!--                      <button type="reset" class="btn btn-dark mr-2 button-reset" >-->
+<!--                      </button>-->
+<!--                      <button type="submit" class="btn btn-info button-search" id="find-product-form"-->
+<!--                              >-->
+<!--                      </button>-->
+<!--                    </div>-->
+<!--                  </div>-->
+
+
+                </div>
+
+              </div>
+            </form>
+
 <div class="card">
   <p-table
     #dt
@@ -14,15 +131,8 @@
     [filterDelay]="0"
     [globalFilterFields]="['name', 'country.name', 'representative.name', 'status']"
   >
-    <ng-template pTemplate="caption">
-      <div class="table-header">
-        List of Customers
-        <span class="p-input-icon-left">
-                    <i class="pi pi-search"></i>
-                    <input pInputText type="text" placeholder="Global Search"/>
-                </span>
-      </div>
-    </ng-template>
+
+
     <ng-template pTemplate="header">
       <tr>
         <th style="width: 4rem">
