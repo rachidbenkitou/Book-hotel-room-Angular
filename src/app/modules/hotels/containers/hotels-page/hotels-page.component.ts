@@ -6,7 +6,7 @@ import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {ProductService} from "../../../../products/services/product.service";
 import {Title} from "@angular/platform-browser";
 import {DataService} from "../../../../shared/services/data.service";
-import {ProductAddEditComponent} from "../../../../products/components/product-add-edit/product-add-edit.component";
+import {HotelAddEditComponent} from "../../components/hotel-add-edit/hotel-add-edit.component";
 
 @Component({
   selector: 'app-hotels-page',
@@ -32,9 +32,9 @@ export class HotelsPageComponent implements OnInit {
 
     this.clickActionSubscription = this.actionsService.getAddEvent().subscribe((ev) => {
 
-      if (ev === 'product') {
-        //this.addProduct();
-        this.router.navigate([`/products/add`]);
+      if (ev === 'hotel') {
+        this.addHotel();
+
 
       }
     })
@@ -46,8 +46,8 @@ export class HotelsPageComponent implements OnInit {
 
   }
 
-  addProduct() {
-    const dialogRef = this.modalService.open(ProductAddEditComponent, {
+  addHotel() {
+    const dialogRef = this.modalService.open(HotelAddEditComponent, {
       size: "xl",
       backdrop: 'static',
       keyboard: false,
@@ -56,13 +56,13 @@ export class HotelsPageComponent implements OnInit {
       operation: "add",
       item: {}
     }
-    dialogRef.componentInstance.data = data;
-    dialogRef.componentInstance.onAddEdit.subscribe((event: any) => {
-      if (event.source === "close") {
-        dialogRef.close()
-      }
-      this.productService.reload.emit()
-    });
+    // dialogRef.componentInstance.data = data;
+    // dialogRef.componentInstance.onAddEdit.subscribe((event: any) => {
+    //   if (event.source === "close") {
+    //     dialogRef.close()
+    //   }
+    //   this.productService.reload.emit()
+    // });
   }
 
   // tslint:disable-next-line:use-lifecycle-interface

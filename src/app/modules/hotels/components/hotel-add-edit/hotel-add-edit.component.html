@@ -1,0 +1,71 @@
+<div class="card">
+  <div class="modal-header">
+    <h5 class="modal-title" id="addTutorModalLabel">
+<!--            {{data.operation === 'add' ? ('Ajouter un layout') : (('Modifier le layout') + ' #' + layoutForm?.value?.id)}}-->
+    </h5>
+    <button type="reset" class="close" data-dismiss="modal" aria-label="Close"
+            (click)="OncloseModal()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div  class="progress indeterminate"></div>
+  <div class="card-body">
+    <form>
+      <div class="form-row">
+
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="code">{{'Code'}}
+              <span class="text-danger">*</span>
+            </label>
+            <input type="text"  name="code" class="form-control" id="code"
+                   placeholder="ex :EEkk44" required>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="image">{{'Image'}}
+              <span class="text-danger">*</span>
+            </label>
+            <input type="text"  name="image" class="form-control" id="image">
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="form-group">
+
+            <label for="name">{{'Section'}}<span style="color: red;padding-left: 3px;">*</span></label>
+
+            <div class="d-flex">
+              <ng-select #Selecter1 [appendTo]="'body'" id="name" class="flex-grow-1" name="sectionNameSelect"
+                         [items]="sectionList" bindValue="id" bindLabel="name"
+                         notFoundText="{{'Elément n\'existe pas !'}}"
+                         placeholder="{{'Choisir une section'}}" formControlName="sectionId"
+              >
+              </ng-select>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="col align-self-center">
+        <div class="text-right modal-footer">
+
+                    <span *ngIf="sppinerDeleteDisplaying" class="spinner-grow spinner-grow-sm" role="status"
+                          aria-hidden="true"></span>
+                    <button type="button" (click)="OncloseModal()" id="add-layout-form" class="btn btn-outline-dark"
+                            data-dismiss="modal">{{'Fermer'}}</button>
+                    <button  type="submit" id="submitLayout" class="btn btn-info">
+                      Ajouter
+                    </button>
+        </div>
+      </div>
+
+    </form>
+  </div>
+</div>
+
+
+
