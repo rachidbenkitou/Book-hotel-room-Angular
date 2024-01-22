@@ -6,7 +6,6 @@ import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {ProductService} from "../../../../products/services/product.service";
 import {Title} from "@angular/platform-browser";
 import {DataService} from "../../../../shared/services/data.service";
-import {HotelAddEditComponent} from "../../components/hotel-add-edit/hotel-add-edit.component";
 
 @Component({
   selector: 'app-hotels-page',
@@ -33,9 +32,7 @@ export class HotelsPageComponent implements OnInit {
     this.clickActionSubscription = this.actionsService.getAddEvent().subscribe((ev) => {
 
       if (ev === 'hotel') {
-        this.addHotel();
-
-
+        this.router.navigate([`/hotels/add`]);
       }
     })
     router.events.subscribe((event => {
@@ -44,25 +41,6 @@ export class HotelsPageComponent implements OnInit {
       }
     }));
 
-  }
-
-  addHotel() {
-    const dialogRef = this.modalService.open(HotelAddEditComponent, {
-      size: "xl",
-      backdrop: 'static',
-      keyboard: false,
-    });
-    const data = {
-      operation: "add",
-      item: {}
-    }
-    // dialogRef.componentInstance.data = data;
-    // dialogRef.componentInstance.onAddEdit.subscribe((event: any) => {
-    //   if (event.source === "close") {
-    //     dialogRef.close()
-    //   }
-    //   this.productService.reload.emit()
-    // });
   }
 
   // tslint:disable-next-line:use-lifecycle-interface

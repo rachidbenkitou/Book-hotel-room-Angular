@@ -14,6 +14,10 @@
 //leaflet style pour mapStreetOpen
 @import "~leaflet/dist/leaflet.css";
 @import "@runette/leaflet-fullscreen/dist/leaflet.fullscreen.css";
+.nav-tabs {
+  font-size: 1rem;
+  font-weight: 600;
+}
 
 div .table-padding {
   padding-bottom: 15px !important;

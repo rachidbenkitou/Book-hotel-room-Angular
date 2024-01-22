@@ -1,71 +1,113 @@
-<div class="card">
-  <div class="modal-header">
-    <h5 class="modal-title" id="addTutorModalLabel">
-<!--            {{data.operation === 'add' ? ('Ajouter un layout') : (('Modifier le layout') + ' #' + layoutForm?.value?.id)}}-->
-    </h5>
-    <button type="reset" class="close" data-dismiss="modal" aria-label="Close"
-            (click)="OncloseModal()">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <div  class="progress indeterminate"></div>
-  <div class="card-body">
-    <form>
-      <div class="form-row">
+<div *ngIf="loadingCity"
+     class="progress indeterminate"></div>
 
-        <div class="col-md-4">
-          <div class="form-group">
-            <label for="code">{{'Code'}}
-              <span class="text-danger">*</span>
-            </label>
-            <input type="text"  name="code" class="form-control" id="code"
-                   placeholder="ex :EEkk44" required>
-          </div>
-        </div>
+<div class="card-body">
+  <form [formGroup]="hotelForm" (ngSubmit)="addEditProduct()">
 
-        <div class="col-md-4">
-          <div class="form-group">
-            <label for="image">{{'Image'}}
-              <span class="text-danger">*</span>
-            </label>
-            <input type="text"  name="image" class="form-control" id="image">
-          </div>
-        </div>
+    <div class="form-row">
 
-        <div class="col-md-4">
-          <div class="form-group">
-
-            <label for="name">{{'Section'}}<span style="color: red;padding-left: 3px;">*</span></label>
-
-            <div class="d-flex">
-              <ng-select #Selecter1 [appendTo]="'body'" id="name" class="flex-grow-1" name="sectionNameSelect"
-                         [items]="sectionList" bindValue="id" bindLabel="name"
-                         notFoundText="{{'Elément n\'existe pas !'}}"
-                         placeholder="{{'Choisir une section'}}" formControlName="sectionId"
-              >
-              </ng-select>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-      <div class="col align-self-center">
-        <div class="text-right modal-footer">
-
-                    <span *ngIf="sppinerDeleteDisplaying" class="spinner-grow spinner-grow-sm" role="status"
-                          aria-hidden="true"></span>
-                    <button type="button" (click)="OncloseModal()" id="add-layout-form" class="btn btn-outline-dark"
-                            data-dismiss="modal">{{'Fermer'}}</button>
-                    <button  type="submit" id="submitLayout" class="btn btn-info">
-                      Ajouter
-                    </button>
+      <div class="col-md-4">
+        <div class="form-group">
+          <label for="name">Name
+            <span class="text-danger">*</span>
+          </label>
+          <input type="text" formControlName="name" name="name" class="form-control" id="name"
+                 placeholder="ex. Lenovo thinkpad">
         </div>
       </div>
 
-    </form>
-  </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <label for="address">Address
+            <span class="text-danger">*</span>
+          </label>
+          <input type="text" formControlName="address" class="form-control" id="address"
+                 placeholder="ex. Oulfa Farah Essalam">
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="form-group" style="min-width: 150px;">
+          <label for="cityId">City<span class="text-danger">*</span> </label>
+          <ng-select id="cityId" [items]="cities" formControlName="cityId"
+                     bindValue="id" bindLabel="name" placeholder="ex. Casablanca">
+          </ng-select>
+        </div>
+      </div>
+
+
+      <div class="col-md-4">
+        <div class="form-group">
+          <label for="price">Email
+            <span class="text-danger">*</span>
+          </label>
+          <div class="input-group mb-3">
+            <input type="email" formControlName="email" class="form-control"
+                   id="price" placeholder="ex. Rachid@gmail.com ">
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="form-group">
+          <label for="phone">Phone Number
+          </label>
+          <div class="input-group mb-3">
+            <input type="number" formControlName="phone" class="form-control"
+                   id="phone" placeholder="ex. 0655438876 ">
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-md-4" style="display: flex; justify-content: space-around; margin-top: 20px">
+        <div class="custom-control custom-radio m-2 mr-3">
+          <input value="active" type="radio" id="customRadio1"
+                 class="custom-control-input cursor-pointer" formControlName="status"
+                 checked mdbInput>
+          <label class="custom-control-label cursor-pointer" for="customRadio1"> Active </label>
+        </div>
+
+        <div class="custom-control custom-radio m-2 ml-3">
+          <input value="inactive" type="radio" id="customRadio2"
+                 class="custom-control-input cursor-pointer" formControlName="status"
+                 mdbInput>
+          <label class="custom-control-label cursor-pointer" for="customRadio2">Inactive</label>
+        </div>
+      </div>
+
+      <div class="col-md-12">
+        <div class="form-group">
+          <label for="description">Description
+          </label>
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="4"
+                    formControlName="description" name="description" class="form-control"
+                    id="description"></textarea>
+        </div>
+      </div>
+
+      <div class="col-md-12">
+        <div class="form-group">
+          <app-upload-multi-images (selectedImages)="getSelectedImages($event)"></app-upload-multi-images>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="col align-self-center">
+      <div class="text-right modal-footer">
+        <span *ngIf="sppinerDeleteDisplaying" class="spinner-grow spinner-grow-sm" role="status"
+              aria-hidden="true"></span>
+        <button type="button" (click)="OncloseModal('html')" id="add-candidate-form" class="btn btn-outline-dark"
+                data-dismiss="modal">
+          Retourner
+        </button>
+        <button [disabled]="hotelForm.invalid" type="submit" id="submitHotel"
+                class="btn btn-info">{{buttonName}} </button>
+      </div>
+    </div>
+
+  </form>
 </div>
-
 
 

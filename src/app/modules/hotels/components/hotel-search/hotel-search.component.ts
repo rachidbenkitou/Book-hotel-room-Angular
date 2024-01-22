@@ -105,7 +105,7 @@ export class HotelSearchComponent implements OnInit {
 
   ngOnInit(): void {
     this.initForm()
-    this.getProducts()
-    this.getCategoryList()
+    // this.getProducts()
+    // this.getCategoryList()
   }
 }
