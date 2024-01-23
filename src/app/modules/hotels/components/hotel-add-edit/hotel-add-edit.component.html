@@ -1,5 +1,6 @@
 <div *ngIf="loadingCity"
      class="progress indeterminate"></div>
+{{hotelForm.value | json}}
 
 <div class="card-body">
   <form [formGroup]="hotelForm" (ngSubmit)="addEditProduct()">
@@ -36,24 +37,24 @@
       </div>
 
 
-      <div class="col-md-4">
+      <div class="col-md-4" formArrayName="emails">
         <div class="form-group">
-          <label for="price">Email
+          <label for="email">Email
             <span class="text-danger">*</span>
           </label>
           <div class="input-group mb-3">
-            <input type="email" formControlName="email" class="form-control"
-                   id="price" placeholder="ex. Rachid@gmail.com ">
+            <input type="email" [formControlName]="0"  class="form-control"
+                   id="email" placeholder="ex. Rachid@gmail.com ">
           </div>
         </div>
       </div>
 
-      <div class="col-md-4">
+      <div class="col-md-4" formArrayName="phoneNumbers">
         <div class="form-group">
           <label for="phone">Phone Number
           </label>
           <div class="input-group mb-3">
-            <input type="number" formControlName="phone" class="form-control"
+            <input type="text" [formControlName]="0"  class="form-control"
                    id="phone" placeholder="ex. 0655438876 ">
           </div>
         </div>

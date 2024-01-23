@@ -1,7 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {UntypedFormBuilder, UntypedFormGroup, Validators} from "@angular/forms";
-import {Category} from "../../../../categories/models/category";
-import {CategoryService} from "../../../../categories/services/category.service";
+import {FormArray, UntypedFormBuilder, UntypedFormGroup, Validators} from "@angular/forms";
 import {ImageService} from "../../../../images/services/image.service";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {DataService} from "../../../../shared/services/data.service";
@@ -54,14 +52,16 @@ export class HotelAddEditComponent implements OnInit {
   initForm() {
     this.hotelForm = this.formBuilder.group({
       id: [],
-      name: [,Validators.required],
-      cityId: [,Validators.required],
-      phone: [,Validators.required],
-      address: [,Validators.required],
+      name: [, Validators.required],
+      cityId: [, Validators.required],
+      phoneNumbers: this.formBuilder.array([this.formBuilder.control('')], Validators.required),
+      emails: this.formBuilder.array([this.formBuilder.control('')], Validators.required),
+      address: [, Validators.required],
       description: [],
-      status: ["active", Validators.required]
-    })
+      status: ["active", Validators.required],
+    });
   }
+
 
   OncloseModal(from?: string) {
     this.router.navigate(['hotels/search'])
@@ -87,33 +87,39 @@ export class HotelAddEditComponent implements OnInit {
   addHotel() {
     this.sppinerDeleteDisplaying = true
     this.submitButton.disabled = true
-    this.hotelService.addHotel(this.hotelForm.value).subscribe(
-      (response: Hotel) => {
-
-        // if (this.selectedImages !== null && this.selectedImages !== undefined) {
-        //   this.uploadFiles(response?.id)
-        // }
-        // if (!this.isSizeRespected) {
-        //   this.toastr.info('Images are not added because they are out of size, click Edit and choose the correct size images.', 'Info!');
-        // }
-
-      },
-      (error: HttpErrorResponse) => {
-        this.submitButton.disabled = false
-        this.sppinerDeleteDisplaying = false
-      },
-      () => {
-        if (this.isSizeRespected) {
-          this.toastr.success('Added successfully', 'Success!');
-        }
-
-        // if (!this.selectedImages) {
-        //   this.sppinerDeleteDisplaying = false
-        //   this.router.navigate(['hotels/search'])
-        // }
-        this.router.navigate(['hotels/search'])
-      }
-    );
+    console.log(this.hotelForm.value)
+    const formData = new FormData();
+    formData.append("hotel", this.hotelForm.value)
+    for (const file of this.selectedImages){
+      formData.append("images", file );
+    }
+    // this.hotelService.addHotel(this.hotelForm.value).subscribe(
+    //   (response: Hotel) => {
+    //
+    //     // if (this.selectedImages !== null && this.selectedImages !== undefined) {
+    //     //   this.uploadFiles(response?.id)
+    //     // }
+    //     // if (!this.isSizeRespected) {
+    //     //   this.toastr.info('Images are not added because they are out of size, click Edit and choose the correct size images.', 'Info!');
+    //     // }
+    //
+    //   },
+    //   (error: HttpErrorResponse) => {
+    //     this.submitButton.disabled = false
+    //     this.sppinerDeleteDisplaying = false
+    //   },
+    //   () => {
+    //     if (this.isSizeRespected) {
+    //       this.toastr.success('Added successfully', 'Success!');
+    //     }
+    //
+    //     // if (!this.selectedImages) {
+    //     //   this.sppinerDeleteDisplaying = false
+    //     //   this.router.navigate(['hotels/search'])
+    //     // }
+    //     this.router.navigate(['hotels/search'])
+    //   }
+    // );
 
 
   }
@@ -182,7 +188,6 @@ export class HotelAddEditComponent implements OnInit {
       (response: City[]) => {
         this.cities = response
         this.loadingCity = false
-        console.log(this.cities)
       },
       (error: HttpErrorResponse) => {
         this.loadingCity = false;
@@ -198,6 +203,16 @@ export class HotelAddEditComponent implements OnInit {
     this.selectedImages = event.selectedImages.target.files;
     this.isSizeRespected = event.isSizeRespected
     console.log(this.selectedImages)
+
+
+    // Clear existing controls in the images FormArray
+    const imagesFormArray = this.hotelForm.get('images') as FormArray;
+    imagesFormArray.clear();
+
+    // Add new controls for the selected images directly to this.hotelForm.get('images')
+    for (const file of this.selectedImages) {
+      imagesFormArray.push(this.formBuilder.control(file));
+    }
   }
 
   uploadFiles(productId: number): void {

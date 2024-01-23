@@ -1,5 +1,3 @@
-import {Image} from "../../shared/models/image";
-import {Email} from "./email";
 import {Phone} from "./phone";
 
 export interface Hotel {
@@ -11,7 +9,7 @@ export interface Hotel {
   cityId: number;
   cityName: string;
   defaultImage: string;
-  images: Image[];
-  emails: Email[];
+  images: File[];
+  emails: string[];
   phoneNumbers: Phone[];
 }

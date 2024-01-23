@@ -55,10 +55,10 @@ export class HotelsPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.productService.loading$.subscribe(event => {
-      this.loading = event;
-      this.changeDetectorRef.detectChanges()
-    })
+    // this.productService.loading$.subscribe(event => {
+    //   this.loading = event;
+    //   this.changeDetectorRef.detectChanges()
+    // })
     this.isActiveRoute()
   }
 

@@ -5,12 +5,6 @@ import {Category} from "../../../../categories/models/category";
 import {ProductService} from "../../../../products/services/product.service";
 import {CategoryService} from "../../../../categories/services/category.service";
 import {HttpErrorResponse} from "@angular/common/http";
-
-interface Food {
-  value: string;
-  viewValue: string;
-}
-
 @Component({
   selector: 'app-hotel-search',
   templateUrl: './hotel-search.component.html',
