@@ -3,112 +3,113 @@
 {{hotelForm.value | json}}
 
 <div class="card-body">
-  <form [formGroup]="hotelForm" (ngSubmit)="addEditProduct()">
+    <form [formGroup]="hotelForm" (ngSubmit)="addEditProduct()">
 
-    <div class="form-row">
+        <div class="form-row">
 
-      <div class="col-md-4">
-        <div class="form-group">
-          <label for="name">Name
-            <span class="text-danger">*</span>
-          </label>
-          <input type="text" formControlName="name" name="name" class="form-control" id="name"
-                 placeholder="ex. Lenovo thinkpad">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="name">Name
+                        <span class="text-danger">*</span>
+                    </label>
+                    <input type="text" formControlName="name" name="name" class="form-control" id="name"
+                           placeholder="ex. Lenovo thinkpad">
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="address">Address
+                        <span class="text-danger">*</span>
+                    </label>
+                    <input type="text" formControlName="address" class="form-control" id="address"
+                           placeholder="ex. Oulfa Farah Essalam">
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="form-group" style="min-width: 150px;">
+                    <label for="cityId">City<span class="text-danger">*</span> </label>
+                    <ng-select id="cityId" [items]="cities" formControlName="cityId"
+                               bindValue="id" bindLabel="name" placeholder="ex. Casablanca">
+                    </ng-select>
+                </div>
+            </div>
+
+
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="email">Email
+                        <span class="text-danger">*</span>
+                    </label>
+                    <div class="input-group mb-3">
+                        <input type="email" formControlName="defaultEmail" class="form-control"
+                               id="email" placeholder="ex. Rachid@gmail.com ">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="phone">Phone Number
+                    </label>
+                    <div class="input-group mb-3">
+                        <input type="text" formControlName="defaultPhoneNumber" class="form-control"
+                               id="phone" placeholder="ex. 0655438876 ">
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-4" style="display: flex; justify-content: space-around; margin-top: 20px">
+                <div class="custom-control custom-radio m-2 mr-3">
+                    <input value="active" type="radio" id="customRadio1"
+                           class="custom-control-input cursor-pointer" formControlName="status"
+                           checked mdbInput>
+                    <label class="custom-control-label cursor-pointer" for="customRadio1"> Active </label>
+                </div>
+
+                <div class="custom-control custom-radio m-2 ml-3">
+                    <input value="inactive" type="radio" id="customRadio2"
+                           class="custom-control-input cursor-pointer" formControlName="status"
+                           mdbInput>
+                    <label class="custom-control-label cursor-pointer" for="customRadio2">Inactive</label>
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label for="description">Description
+                    </label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="4"
+                              formControlName="description" name="description" class="form-control"
+                              id="description"></textarea>
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <div class="form-group">
+                    <app-upload-multi-images (selectedImages)="getSelectedImages($event)"></app-upload-multi-images>
+                </div>
+            </div>
+
         </div>
-      </div>
 
-      <div class="col-md-4">
-        <div class="form-group">
-          <label for="address">Address
-            <span class="text-danger">*</span>
-          </label>
-          <input type="text" formControlName="address" class="form-control" id="address"
-                 placeholder="ex. Oulfa Farah Essalam">
-        </div>
-      </div>
-
-      <div class="col-md-4">
-        <div class="form-group" style="min-width: 150px;">
-          <label for="cityId">City<span class="text-danger">*</span> </label>
-          <ng-select id="cityId" [items]="cities" formControlName="cityId"
-                     bindValue="id" bindLabel="name" placeholder="ex. Casablanca">
-          </ng-select>
-        </div>
-      </div>
-
-
-      <div class="col-md-4" formArrayName="emails">
-        <div class="form-group">
-          <label for="email">Email
-            <span class="text-danger">*</span>
-          </label>
-          <div class="input-group mb-3">
-            <input type="email" [formControlName]="0"  class="form-control"
-                   id="email" placeholder="ex. Rachid@gmail.com ">
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-4" formArrayName="phoneNumbers">
-        <div class="form-group">
-          <label for="phone">Phone Number
-          </label>
-          <div class="input-group mb-3">
-            <input type="text" [formControlName]="0"  class="form-control"
-                   id="phone" placeholder="ex. 0655438876 ">
-          </div>
-        </div>
-      </div>
-
-
-      <div class="col-md-4" style="display: flex; justify-content: space-around; margin-top: 20px">
-        <div class="custom-control custom-radio m-2 mr-3">
-          <input value="active" type="radio" id="customRadio1"
-                 class="custom-control-input cursor-pointer" formControlName="status"
-                 checked mdbInput>
-          <label class="custom-control-label cursor-pointer" for="customRadio1"> Active </label>
-        </div>
-
-        <div class="custom-control custom-radio m-2 ml-3">
-          <input value="inactive" type="radio" id="customRadio2"
-                 class="custom-control-input cursor-pointer" formControlName="status"
-                 mdbInput>
-          <label class="custom-control-label cursor-pointer" for="customRadio2">Inactive</label>
-        </div>
-      </div>
-
-      <div class="col-md-12">
-        <div class="form-group">
-          <label for="description">Description
-          </label>
-          <textarea class="form-control" id="exampleFormControlTextarea1" rows="4"
-                    formControlName="description" name="description" class="form-control"
-                    id="description"></textarea>
-        </div>
-      </div>
-
-      <div class="col-md-12">
-        <div class="form-group">
-          <app-upload-multi-images (selectedImages)="getSelectedImages($event)"></app-upload-multi-images>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="col align-self-center">
-      <div class="text-right modal-footer">
+        <div class="col align-self-center">
+            <div class="text-right modal-footer">
         <span *ngIf="sppinerDeleteDisplaying" class="spinner-grow spinner-grow-sm" role="status"
               aria-hidden="true"></span>
-        <button type="button" (click)="OncloseModal('html')" id="add-candidate-form" class="btn btn-outline-dark"
-                data-dismiss="modal">
-          Retourner
-        </button>
-        <button [disabled]="hotelForm.invalid" type="submit" id="submitHotel"
-                class="btn btn-info">{{buttonName}} </button>
-      </div>
-    </div>
+                <button type="button" (click)="OncloseModal('html')" id="add-candidate-form"
+                        class="btn btn-outline-dark"
+                        data-dismiss="modal">
+                    Retourner
+                </button>
+                <button [disabled]="hotelForm.invalid" type="submit" id="submitHotel"
+                        class="btn btn-info">{{buttonName}} </button>
+            </div>
+        </div>
 
-  </form>
+    </form>
 </div>
 
 
