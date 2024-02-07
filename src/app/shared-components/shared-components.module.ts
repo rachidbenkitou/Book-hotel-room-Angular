@@ -13,6 +13,7 @@ import {NgxDatatableModule} from "@swimlane/ngx-datatable";
 import {TranslateModule} from "@ngx-translate/core";
 import {ProductListComponent} from "./products/product-list/product-list.component";
 import { UploadMultiImagesComponent } from './images/upload-multi-images/upload-multi-images.component';
+import {TableModule} from "primeng/table";
 
 
 @NgModule({
@@ -34,17 +35,18 @@ import { UploadMultiImagesComponent } from './images/upload-multi-images/upload-
         UploadMultiImagesComponent,
     ],
 
-  imports: [
-    CommonModule,
-    RouterModule,
-    FeatherModule,
-    FormsModule,
-    ReactiveFormsModule,
-    NgxDatatableModule,
-    NgbModule,
-    NgSelectModule,
-    TranslateModule,
-  ]
+    imports: [
+        CommonModule,
+        RouterModule,
+        FeatherModule,
+        FormsModule,
+        ReactiveFormsModule,
+        NgxDatatableModule,
+        NgbModule,
+        NgSelectModule,
+        TranslateModule,
+        TableModule,
+    ]
 })
 export class SharedComponentsModule {
 }

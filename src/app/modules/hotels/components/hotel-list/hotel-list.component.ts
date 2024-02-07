@@ -21,6 +21,7 @@ export class HotelComponent implements OnInit {
   @Output() getHotels: EventEmitter<any> = new EventEmitter();
   tableLimit: number = 10
   deletedHotel: any;
+  rowsPerPage: number = 10;
 
   // @ts-ignore
   constructor(

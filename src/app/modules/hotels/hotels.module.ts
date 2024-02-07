@@ -16,6 +16,8 @@ import {NgSelectModule} from "@ng-select/ng-select";
 import {SharedComponentsModule} from "../../shared-components/shared-components.module";
 import {NgxDatatableModule} from "@swimlane/ngx-datatable";
 import {ButtonModule} from 'primeng/button';
+import {SharedModule} from "primeng/api";
+import {TableModule} from "primeng/table";
 
 
 
@@ -27,19 +29,21 @@ import {ButtonModule} from 'primeng/button';
     HotelsPageComponent
 
   ],
-  imports: [
-    ButtonModule,
-    CommonModule,
-    HttpClientModule,
-    RouterModule.forChild(HotelRoutes),
-    ReactiveFormsModule,
-    FormsModule,
-    NgbModule,
-    FeatherModule,
-    NgSelectModule,
-    SharedComponentsModule,
-    NgxDatatableModule,
-  ],
+    imports: [
+        ButtonModule,
+        CommonModule,
+        HttpClientModule,
+        RouterModule.forChild(HotelRoutes),
+        ReactiveFormsModule,
+        FormsModule,
+        NgbModule,
+        FeatherModule,
+        NgSelectModule,
+        SharedComponentsModule,
+        NgxDatatableModule,
+        SharedModule,
+        TableModule,
+    ],
   exports: [HotelComponent],
   providers: [HotelService],
 })
