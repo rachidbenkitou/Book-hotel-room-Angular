@@ -5,6 +5,8 @@ import {Category} from "../../../../categories/models/category";
 import {ProductService} from "../../../../products/services/product.service";
 import {CategoryService} from "../../../../categories/services/category.service";
 import {HttpErrorResponse} from "@angular/common/http";
+import {Hotel} from "../../models/hotel";
+import {HotelService} from "../../services/hotel.service";
 @Component({
   selector: 'app-hotel-search',
   templateUrl: './hotel-search.component.html',
@@ -17,9 +19,9 @@ export class HotelSearchComponent implements OnInit {
 
   public isCollapsed1 = false;
 
-  productForm!: UntypedFormGroup;
+  hotelForm!: UntypedFormGroup;
 
-  productList: Product[] = [];
+  hotelList: Hotel[] = [];
 
   categoryList: Category[] = [];
 
@@ -30,17 +32,17 @@ export class HotelSearchComponent implements OnInit {
 
   constructor(
     private formBuilder: UntypedFormBuilder,
-    private productService: ProductService,
+    private hotelService: HotelService,
     private categoryService: CategoryService
   ) {
-    productService.reload.subscribe(ev => {
+    hotelService.reload.subscribe(ev => {
       this.reset()
     })
   }
 
 
   initForm() {
-    this.productForm = this.formBuilder.group({
+    this.hotelForm = this.formBuilder.group({
       id: [],
       name: [],
       categoryId: [],
@@ -48,58 +50,59 @@ export class HotelSearchComponent implements OnInit {
     });
   }
 
-  public getProducts(id?: number, name?: string, categoryId?: number, visibility?: string): void {
+  public getHotels(id?: number, name?: string, categoryId?: number, visibility?: string): void {
     this.loading = true
-    const submitButton = (document.getElementById('find-product-form') as HTMLInputElement);
+    const submitButton = (document.getElementById('find-hotel-form') as HTMLInputElement);
     submitButton.disabled = true
-    this.productService.changeLoadingState(true)
+    this.hotelService.changeLoadingState(true)
     this.isCollapsed1 = false
-    this.productService.findProduct(id, name, categoryId, visibility).subscribe(
+    this.hotelService.findHotels().subscribe(
       (response: any[]) => {
-        this.productList = response;
+        this.hotelList = response;
+        console.log(this.hotelList)
       },
       (error: HttpErrorResponse) => {
         this.loading = false;
         submitButton.disabled = false
-        this.productService.changeLoadingState(false)
+        this.hotelService.changeLoadingState(false)
       },
       () => {
         submitButton.disabled = false
         this.loading = false
-        this.productService.changeLoadingState(false)
+        this.hotelService.changeLoadingState(false)
 
       }
     );
   }
 
   getCategoryList() {
-    //this.loadingState.emit(true)
-    this.productService.changeLoadingState(true)
-    this.categoryService.findCategories().subscribe(
-      (response: any[]) => {
-        this.categoryList = response;
-        //this.loadingState.emit(false)
-        this.productService.changeLoadingState(false)
-      }
-    );
+    // //this.loadingState.emit(true)
+    // this.productService.changeLoadingState(true)
+    // this.categoryService.findCategories().subscribe(
+    //   (response: any[]) => {
+    //     this.categoryList = response;
+    //     //this.loadingState.emit(false)
+    //     this.productService.changeLoadingState(false)
+    //   }
+    // );
   }
 
   reset(): void {
-    this.productForm.reset()
-    this.getProducts()
+    this.hotelForm.reset()
+    this.getHotels()
   }
 
   search(): void {
-    this.getProducts(
-      this?.productForm.value?.id,
-      this?.productForm.value?.name,
-      this?.productForm.value?.categoryId,
-      this?.productForm.value?.visibility)
+    // this.getProducts(
+    //   this?.productForm.value?.id,
+    //   this?.productForm.value?.name,
+    //   this?.productForm.value?.categoryId,
+    //   this?.productForm.value?.visibility)
   }
 
   ngOnInit(): void {
     this.initForm()
-    // this.getProducts()
+    this.getHotels()
     // this.getCategoryList()
   }
 }

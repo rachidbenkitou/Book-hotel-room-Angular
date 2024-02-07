@@ -1,5 +1,4 @@
 import {ChangeDetectorRef, Component, EventEmitter, Input, OnInit, Output, TemplateRef} from '@angular/core';
-import {ProductService} from "../../../../products/services/product.service";
 import {ImageService} from "../../../../images/services/image.service";
 import {DataService} from "../../../../shared/services/data.service";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
@@ -9,6 +8,8 @@ import {ProductAddEditComponent} from "../../../../products/components/product-a
 import {HttpErrorResponse} from "@angular/common/http";
 import {Product} from "../../../../products/models/product";
 import {ProductImagesComponent} from "../../../../products/components/product-images/product-images.component";
+import {HotelService} from "../../services/hotel.service";
+import {Hotel} from "../../models/hotel";
 
 @Component({
   selector: 'app-hotel-list',
@@ -16,14 +17,14 @@ import {ProductImagesComponent} from "../../../../products/components/product-im
   styleUrls: ['./hotel-list.component.scss']
 })
 export class HotelComponent implements OnInit {
-  @Input() productList: any[] = []
-  @Output() getProducts: EventEmitter<any> = new EventEmitter();
+  @Input() hotelList: Hotel[] = []
+  @Output() getHotels: EventEmitter<any> = new EventEmitter();
   tableLimit: number = 10
-  deletedProduct: any;
+  deletedHotel: any;
 
   // @ts-ignore
   constructor(
-    private productService: ProductService,
+    private hotelService: HotelService,
     private imageService: ImageService,
     private dataService: DataService,
     private modalService: NgbModal,
@@ -37,7 +38,7 @@ export class HotelComponent implements OnInit {
   }
 
   onDisplay(row: any) {
-    this.router.navigate(['/products', row.id]);
+    this.router.navigate(['/hotels', row.id]);
   }
 
   onEdit(row) {
@@ -54,15 +55,15 @@ export class HotelComponent implements OnInit {
     dialogRef.componentInstance.data = data;
     dialogRef.componentInstance.onAddEdit.subscribe((event: any) => {
       this.OncloseModal()
-      this.getProducts.emit()
+      this.getHotels.emit()
 
     });
   }
 
 
-  onOpenModal(target: TemplateRef<any>, product: any, mode: string): void {
+  onOpenModal(target: TemplateRef<any>, hotel: any, mode: string): void {
     if (mode === 'delete') {
-      this.deletedProduct = product;
+      this.deletedHotel = hotel;
     }
     this.modalService.open(target, {
       centered: true,
@@ -73,8 +74,8 @@ export class HotelComponent implements OnInit {
   submitButton: any
   sppinerDeleteDisplaying: boolean = false
 
-  deleteProductImages(productId: number): void {
-    this.imageService.deleteImageByProductId(productId).subscribe(
+  deleteProductImages(hotelId: number): void {
+    this.imageService.deleteImageByProductId(hotelId).subscribe(
       (response: void) => {
       },
       (error: HttpErrorResponse) => {
@@ -84,14 +85,14 @@ export class HotelComponent implements OnInit {
     );
 
   }
-  deleteProductFunction(productId: number): void {
+
+  deleteProductFunction(hotelId: number): void {
 
     this.submitButton = (document.getElementById('submitDelete') as HTMLInputElement);
     this.submitButton.disabled = true
     this.sppinerDeleteDisplaying = true
-    this.productService.deleteProduct(productId).subscribe(
+    this.hotelService.deleteHotel(hotelId).subscribe(
       (response: void) => {
-        this.deleteProductImages(productId)
       },
       (error: HttpErrorResponse) => {
         this.sppinerDeleteDisplaying = false
@@ -101,9 +102,9 @@ export class HotelComponent implements OnInit {
       () => {
         this.sppinerDeleteDisplaying = false
         this.submitButton.disabled = false
-        this.getProducts.emit();
+        this.getHotels.emit();
         this.OncloseModal();
-        this.toastr.success('Supprimé avec succès', 'Succès!');
+        this.toastr.success('The hotel has been successfully deleted', 'Success!');
       }
     );
 
@@ -117,8 +118,8 @@ export class HotelComponent implements OnInit {
   }
 
   navigateToEditPage(row: Product) {
-    this.productService.editFormList(row)
-    this.router.navigate(['/products/edit', row?.id]);
+    this.hotelService.editFormList(row)
+    this.router.navigate(['/hotels/edit', row?.id]);
   }
 
   showProductImages(productImagePath: string, id: number) {

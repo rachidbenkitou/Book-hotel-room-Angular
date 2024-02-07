@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import {EventEmitter, Injectable, Output} from '@angular/core';
 import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
 import {environment} from "../../../../environments/environment";
 import {BehaviorSubject, Observable} from "rxjs";
@@ -8,7 +8,9 @@ import {Hotel} from "../models/hotel";
     providedIn: 'root'
 })
 export class HotelService {
-    hotelUrl: string = `${environment.appUrl}hotels`
+  @Output() reload = new EventEmitter<any>();
+
+  hotelUrl: string = `${environment.appUrl}hotels`
 
     constructor(private http: HttpClient) {
     }

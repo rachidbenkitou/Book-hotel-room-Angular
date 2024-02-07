@@ -31,6 +31,15 @@ export const HotelRoutes: Routes = [
           operation: "add"
         },
       },
+      {
+        path: 'edit/:id',
+        component: HotelAddEditComponent,
+        data: {
+          title: 'Update a  Hotel',
+          addAction: false,
+          operation: "edit"
+        },
+      },
     ]
   }
 ];
