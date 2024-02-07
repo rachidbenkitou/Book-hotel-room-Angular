@@ -2,6 +2,7 @@ import {Routes} from "@angular/router";
 import {HotelSearchComponent} from "./components/hotel-search/hotel-search.component";
 import {HotelsPageComponent} from "./containers/hotels-page/hotels-page.component";
 import {HotelAddEditComponent} from "./components/hotel-add-edit/hotel-add-edit.component";
+import {HotelDetailsComponent} from "./components/hotel-details/hotel-details.component";
 
 export const HotelRoutes: Routes = [
   {
@@ -41,5 +42,13 @@ export const HotelRoutes: Routes = [
         },
       },
     ]
+  },
+  {
+    path: 'details/:id',
+    component: HotelDetailsComponent,
+    data: {
+      title: 'Hotel details',
+      addAction: false
+    },
   }
 ];

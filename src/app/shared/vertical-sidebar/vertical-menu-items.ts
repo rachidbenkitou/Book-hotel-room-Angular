@@ -58,4 +58,24 @@ export const ROUTES: RouteInfo[] = [
     submenu: []
   },
 
+  {
+    path: '/WimNotifymodel',
+    title: 'm.setting',
+    icon: 'settings',
+    class: 'has-arrow',
+    extralink: false,
+    //isPro: false,
+    submenu: [
+      {
+        path: '/WimNotify/model',
+        title: 'm.model',
+        icon: 'mdi mdi-layers',
+        class: '',
+        extralink: false,
+        //isPro: false,
+        submenu: []
+      },
+    ]
+  },
+
 ];

@@ -1,0 +1,91 @@
+<!-- view -->
+
+
+<div class="card">
+  <div *ngIf="loadingSection === 'LOADING' "
+       class="progress indeterminate"></div>
+
+  <div class="card-body">
+
+    <div class="row">
+
+      <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs w-100 d-flex flex-nowrap ">
+        <li [ngbNavItem]="1">
+          <a ngbNavLink class="d-flex flex-nowrap">
+            <i-feather name="file-text" class="feather-sm mr-1"></i-feather>
+            <span *ngIf="active === 1 && screenMode === 'small'">{{'Fiche'}}</span>
+            <span *ngIf="screenMode !== 'small'">{{'Fiche'}}</span>
+          </a>
+          <ng-template ngbNavContent>
+
+
+            <!-- Groupe d'informations (gauche) -->
+            <div class="col-md-6 mb-3 ">
+              <!--<h4 class="text-center mb-4">Informations de siteweb</h4>-->
+              <!--<hr class="mt-0 mb-4">-->
+              <div class="row text-nowrap">
+                <label for="id" class="col control-label h63 m-2 mr-2"> {{'ID '}} </label>
+                <span class="col form-control-static text-nowrap m-2" id="id" name="id">
+               {{section?.id}}
+              </span>
+              </div>
+
+              <div class="col mb-3 text-nowrap">
+                <div class="row text-nowrap">
+                  <label for="code" class="col control-label h6 m-2 mr-2"> {{'Code '}} </label>
+                  <span class="col form-control-static text-nowrap m-2" id="code" name="code">
+                 {{section?.code}}
+                </span>
+                </div>
+              </div>
+              <div class="col mb-3 text-nowrap">
+                <div class="row text-nowrap">
+                  <label for="name" class="col control-label h6 m-2 mr-2"> {{'Nom en français '}} </label>
+                  <span class="col form-control-static text-nowrap m-2" id="name" name="name">
+               {{section?.name}}
+              </span>
+                </div>
+              </div>
+
+
+            </div>
+
+
+          </ng-template>
+        </li>
+
+        <li ngbnavitem="" class="nav-item d-flex align-items-start  " [style]="'margin-left: auto;'">
+          <!-- *ngIf="screenMode !== 'small'"  class="details-buttons"-->
+          <div *ngIf="screenMode !== 'medium' && screenMode !== 'small'">
+
+            <button *ngIf="active=== 1" type="button" class="btn btn-info px-3 mr-2 button" style="min-width: 90px"
+                    (click)="editSection(section)">
+              <i-feather name="edit" class="feather-sm icon mr-2"></i-feather>
+              <span class="text">Modifier</span>
+            </button>
+
+            <button type="button" class="btn btn-outline-dark mr-3 button"
+                    style="min-width: 90px" (click)="navigateToSectionPage()">
+              <i-feather name="arrow-left" class="feather-sm icon mr-2"></i-feather>
+              <span class="text">Retour</span>
+            </button>
+          </div>
+          <!--               More on small screan-->
+          <a *ngIf="active=== 1 && (screenMode === 'medium' || screenMode === 'small')" class="action"
+             ngbTooltip="Modifier">
+            <i-feather name="edit" class="feather-lg icon btn btn-outline-light"
+                       (click)="editSection(section)" style="color: #333;">
+            </i-feather>
+          </a>
+          <a *ngIf="screenMode === 'medium' || screenMode === 'small'" class="action"
+             ngbTooltip="Retour">
+            <i-feather name="arrow-left" class="feather-lg icon btn btn-outline-light"
+                       (click)="navigateToSectionPage()" style="color: #333;"></i-feather>
+          </a>
+
+        </li>
+      </ul>
+    </div>
+    <div [ngbNavOutlet]="nav" class="mt-2"></div>
+  </div>
+</div>

@@ -18,6 +18,7 @@ import {NgxDatatableModule} from "@swimlane/ngx-datatable";
 import {ButtonModule} from 'primeng/button';
 import {SharedModule} from "primeng/api";
 import {TableModule} from "primeng/table";
+import { HotelDetailsComponent } from './components/hotel-details/hotel-details.component';
 
 
 
@@ -26,7 +27,8 @@ import {TableModule} from "primeng/table";
     HotelComponent,
     HotelAddEditComponent,
     HotelSearchComponent,
-    HotelsPageComponent
+    HotelsPageComponent,
+    HotelDetailsComponent
 
   ],
     imports: [
