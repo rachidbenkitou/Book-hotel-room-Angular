@@ -3,9 +3,9 @@ import {NavigationEnd, Router} from "@angular/router";
 import {ActionsService} from "../../../../shared/services/actions.service";
 import {Subject, Subscription} from "rxjs";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
-import {ProductService} from "../../../../products/services/product.service";
 import {Title} from "@angular/platform-browser";
 import {DataService} from "../../../../shared/services/data.service";
+import {HotelService} from "../../services/hotel.service";
 
 @Component({
   selector: 'app-hotels-page',
@@ -21,7 +21,7 @@ export class HotelsPageComponent implements OnInit {
   currentRoute!: string
   active: number = 1;
 
-  constructor(private productService: ProductService,
+  constructor(private hotelService: HotelService,
               private titleService: Title,
               public dataService: DataService,
               private modalService: NgbModal,
@@ -55,10 +55,10 @@ export class HotelsPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // this.productService.loading$.subscribe(event => {
-    //   this.loading = event;
-    //   this.changeDetectorRef.detectChanges()
-    // })
+    this.hotelService.loading$.subscribe(event => {
+      this.loading = event;
+      this.changeDetectorRef.detectChanges()
+    })
     this.isActiveRoute()
   }
 

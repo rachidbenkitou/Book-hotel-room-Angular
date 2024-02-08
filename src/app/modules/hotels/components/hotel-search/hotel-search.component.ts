@@ -1,12 +1,10 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {UntypedFormBuilder, UntypedFormGroup} from "@angular/forms";
-import {Product} from "../../../../products/models/product";
-import {Category} from "../../../../categories/models/category";
-import {ProductService} from "../../../../products/services/product.service";
-import {CategoryService} from "../../../../categories/services/category.service";
 import {HttpErrorResponse} from "@angular/common/http";
 import {Hotel} from "../../models/hotel";
 import {HotelService} from "../../services/hotel.service";
+import {CityService} from "../../../cities/services/city.service";
+
 @Component({
   selector: 'app-hotel-search',
   templateUrl: './hotel-search.component.html',
@@ -23,17 +21,17 @@ export class HotelSearchComponent implements OnInit {
 
   hotelList: Hotel[] = [];
 
-  categoryList: Category[] = [];
+  cityList: any[] = [];
 
-  visibilityList: any[] = [
-    {id: 1, name: "visible"},
-    {id: 2, name: "invisible"},
+  statusList: any[] = [
+    {id: 1, name: "active"},
+    {id: 2, name: "inactive"},
   ]
 
   constructor(
     private formBuilder: UntypedFormBuilder,
     private hotelService: HotelService,
-    private categoryService: CategoryService
+    private cityService: CityService
   ) {
     hotelService.reload.subscribe(ev => {
       this.reset()
@@ -45,21 +43,20 @@ export class HotelSearchComponent implements OnInit {
     this.hotelForm = this.formBuilder.group({
       id: [],
       name: [],
-      categoryId: [],
-      visibility: [],
+      cityId: [],
+      status: [],
     });
   }
 
-  public getHotels(id?: number, name?: string, categoryId?: number, visibility?: string): void {
+  public getHotels(id?: number, name?: string, cityId?: number, status?: string): void {
     this.loading = true
     const submitButton = (document.getElementById('find-hotel-form') as HTMLInputElement);
     submitButton.disabled = true
     this.hotelService.changeLoadingState(true)
     this.isCollapsed1 = false
-    this.hotelService.findHotels().subscribe(
+    this.hotelService.findHotels(id, name, status, cityId).subscribe(
       (response: any[]) => {
         this.hotelList = response;
-        console.log(this.hotelList)
       },
       (error: HttpErrorResponse) => {
         this.loading = false;
@@ -75,16 +72,16 @@ export class HotelSearchComponent implements OnInit {
     );
   }
 
-  getCategoryList() {
-    // //this.loadingState.emit(true)
-    // this.productService.changeLoadingState(true)
-    // this.categoryService.findCategories().subscribe(
-    //   (response: any[]) => {
-    //     this.categoryList = response;
-    //     //this.loadingState.emit(false)
-    //     this.productService.changeLoadingState(false)
-    //   }
-    // );
+  getCityList() {
+    //this.loadingState.emit(true)
+    this.hotelService.changeLoadingState(true)
+    this.cityService.findCities().subscribe(
+      (response: any[]) => {
+        this.cityList = response;
+        //this.loadingState.emit(false)
+        this.hotelService.changeLoadingState(false)
+      }
+    );
   }
 
   reset(): void {
@@ -93,16 +90,17 @@ export class HotelSearchComponent implements OnInit {
   }
 
   search(): void {
-    // this.getProducts(
-    //   this?.productForm.value?.id,
-    //   this?.productForm.value?.name,
-    //   this?.productForm.value?.categoryId,
-    //   this?.productForm.value?.visibility)
+    this.getHotels(
+      this?.hotelForm.value?.id,
+      this?.hotelForm.value?.name,
+      this?.hotelForm.value?.cityId,
+      this?.hotelForm.value?.status
+    )
   }
 
   ngOnInit(): void {
     this.initForm()
     this.getHotels()
-    // this.getCategoryList()
+    this.getCityList()
   }
 }

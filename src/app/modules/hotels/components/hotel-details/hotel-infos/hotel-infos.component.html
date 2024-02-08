@@ -1,0 +1,84 @@
+<!-- Information Group -->
+<div class="container ">
+  <div class="row">
+    <div class="col-md-6 mb-1">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title font-weight-bold">Name: <span class="ml-3 font-weight-normal">{{hotel?.id}}</span></h5>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6 mb-1">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title font-weight-bold">Price: <span class="ml-3 font-weight-normal">{{hotel?.name}}</span>
+          </h5>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6 mb-1">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title font-weight-bold">Email: <span
+            class="ml-3 font-weight-normal">{{hotel?.defaultEmail}}</span></h5>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6 mb-1">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title font-weight-bold">Phone: <span
+            class="ml-3 font-weight-normal">{{hotel?.defaultPhoneNumber}}</span></h5>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6 mb-1">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title font-weight-bold">City: <span class="ml-3 font-weight-normal">{{hotel?.cityName}}</span>
+          </h5>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6 mb-1">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title font-weight-bold">Address: <span
+            class="ml-3 font-weight-normal">{{hotel?.address}}</span></h5>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6 mb-1">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title font-weight-bold">Status:
+            <span *ngIf="hotel?.status === 'active'" class="ml-3 badge badge-success px-1" style="font-size: 15px"> active</span>
+            <span *ngIf="hotel?.status !== 'active'" class="ml-3 badge badge-danger px-1" style="font-size: 15px"> inactive</span>
+          </h5>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6 mb-1">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title font-weight-bold">Description: <span
+            class="ml-3 font-weight-normal">{{hotel?.description}}</span></h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

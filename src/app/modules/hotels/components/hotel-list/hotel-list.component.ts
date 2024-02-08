@@ -38,8 +38,9 @@ export class HotelComponent implements OnInit {
     this.modalService.dismissAll();
   }
 
-  onDisplay(row: any) {
-    this.router.navigate(['/hotels', row.id]);
+  navigateToDetailsPage(row: any) {
+    this.hotelService.editFormList(row);
+    this.router.navigate(['/hotels/details', row.id]);
   }
 
   onEdit(row) {

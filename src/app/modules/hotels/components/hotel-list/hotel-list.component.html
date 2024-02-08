@@ -113,7 +113,7 @@
         <span *ngIf="hotel.status !== 'active'" class="badge badge-danger px-1" style="font-size: 12px"> inactive</span>
       </td>
       <td>
-        <a class="link cursor-pointer mr-2" ngbTooltip="Afficher" (click)="onDisplay(hotel)">
+        <a class="link cursor-pointer mr-2" ngbTooltip="Details" (click)="navigateToDetailsPage(hotel)">
           <i-feather name="eye" class="feather-sm"></i-feather>
         </a>
         <a class="link cursor-pointer mr-2" ngbTooltip="Modifier" (click)="navigateToEditPage(hotel)">

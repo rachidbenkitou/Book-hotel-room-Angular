@@ -19,6 +19,10 @@ import {ButtonModule} from 'primeng/button';
 import {SharedModule} from "primeng/api";
 import {TableModule} from "primeng/table";
 import { HotelDetailsComponent } from './components/hotel-details/hotel-details.component';
+import { HotelInfosComponent } from './components/hotel-details/hotel-infos/hotel-infos.component';
+import { HotelRoomsComponent } from './components/hotel-details/hotel-rooms/hotel-rooms.component';
+import { HotelReservationsComponent } from './components/hotel-details/hotel-reservations/hotel-reservations.component';
+import { HotelDashboardComponent } from './components/hotel-details/hotel-dashboard/hotel-dashboard.component';
 
 
 
@@ -28,7 +32,11 @@ import { HotelDetailsComponent } from './components/hotel-details/hotel-details.
     HotelAddEditComponent,
     HotelSearchComponent,
     HotelsPageComponent,
-    HotelDetailsComponent
+    HotelDetailsComponent,
+    HotelInfosComponent,
+    HotelRoomsComponent,
+    HotelReservationsComponent,
+    HotelDashboardComponent
 
   ],
     imports: [

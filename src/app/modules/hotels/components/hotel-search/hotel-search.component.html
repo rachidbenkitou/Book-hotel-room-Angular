@@ -2,7 +2,6 @@
   <div class="col-12">
     <div class="card">
       <div class="card-body px-0 py-1">
-
         <div class="table">
           <div class="modal-body pt-0">
             <form novalidate="" [formGroup]="hotelForm" class="search">
@@ -29,16 +28,16 @@
 
                   <div class="col-md-3 px-md-1">
                     <div class="form-group">
-                      <label>Category</label>
+                      <label>City</label>
                       <ng-select
-                        id="categoryId"
-                        name="categoryId"
-                        formControlName="categoryId"
-                        [items]="categoryList"
+                        id="cityId"
+                        name="cityId"
+                        formControlName="cityId"
+                        [items]="cityList"
                         bindValue="id"
                         bindLabel="name"
                         notFoundText="no product found"
-                        placeholder="Choose a category">
+                        placeholder="Choose a city">
                       </ng-select>
                     </div>
                   </div>
@@ -46,16 +45,16 @@
 
                   <div class="col-md-2 px-md-1">
                     <div class="form-group">
-                      <label>Visibility</label>
+                      <label>Status</label>
                       <ng-select
-                        id="visibility"
-                        name="visibility"
-                        formControlName="visibility"
-                        [items]="visibilityList"
+                        id="status"
+                        name="status"
+                        formControlName="status"
+                        [items]="statusList"
                         bindValue="name"
                         bindLabel="name"
                         notFoundText="no element found"
-                        placeholder="Choose type of visibility">
+                        placeholder="Choose type of status">
                       </ng-select>
                     </div>
                   </div>
@@ -87,7 +86,6 @@
 
                 </div>
               </div>
-
 
 
               <app-hotel-list

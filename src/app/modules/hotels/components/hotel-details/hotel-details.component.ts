@@ -1,4 +1,4 @@
-import {Component, HostListener, OnInit} from '@angular/core';
+import {Component, EventEmitter, HostListener, OnInit, Output} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {ToastrService} from "ngx-toastr";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
@@ -90,7 +90,7 @@ export class HotelDetailsComponent implements OnInit {
 
 
   navigateToSectionPage() {
-    this.route.navigate(['wimSite/parametrage/section'] ) ;
+    this.route.navigate(['hotels'] ) ;
   }
 
   editSection(row: any) {
