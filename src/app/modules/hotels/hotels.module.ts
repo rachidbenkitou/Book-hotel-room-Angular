@@ -20,9 +20,12 @@ import {SharedModule} from "primeng/api";
 import {TableModule} from "primeng/table";
 import { HotelDetailsComponent } from './components/hotel-details/hotel-details.component';
 import { HotelInfosComponent } from './components/hotel-details/hotel-infos/hotel-infos.component';
-import { HotelRoomsComponent } from './components/hotel-details/hotel-rooms/hotel-rooms.component';
-import { HotelReservationsComponent } from './components/hotel-details/hotel-reservations/hotel-reservations.component';
 import { HotelDashboardComponent } from './components/hotel-details/hotel-dashboard/hotel-dashboard.component';
+import {RatingModule} from "primeng/rating";
+import {DataViewModule} from "primeng/dataview";
+import {DropdownModule} from "primeng/dropdown";
+import {InputTextModule} from "primeng/inputtext";
+import {ChartModule} from "primeng/chart";
 
 
 
@@ -34,8 +37,6 @@ import { HotelDashboardComponent } from './components/hotel-details/hotel-dashbo
     HotelsPageComponent,
     HotelDetailsComponent,
     HotelInfosComponent,
-    HotelRoomsComponent,
-    HotelReservationsComponent,
     HotelDashboardComponent
 
   ],
@@ -53,6 +54,11 @@ import { HotelDashboardComponent } from './components/hotel-details/hotel-dashbo
         NgxDatatableModule,
         SharedModule,
         TableModule,
+        RatingModule,
+        DataViewModule,
+        DropdownModule,
+        InputTextModule,
+        ChartModule,
     ],
   exports: [HotelComponent],
   providers: [HotelService],

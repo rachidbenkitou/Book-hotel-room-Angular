@@ -38,34 +38,6 @@
 
         </li>
 
-        <li [ngbNavItem]="3">
-          <a ngbNavLink class="d-flex flex-nowrap">
-            <i-feather name="file-text" class="feather-sm mr-1"></i-feather>
-            <span *ngIf="active === 1 && screenMode === 'small'">{{'Rooms'}}</span>
-            <span *ngIf="screenMode !== 'small'">{{'Rooms'}}</span>
-          </a>
-
-          <ng-template ngbNavContent>
-            <app-hotel-rooms></app-hotel-rooms>
-          </ng-template>
-
-
-        </li>
-
-        <li [ngbNavItem]="4">
-          <a ngbNavLink class="d-flex flex-nowrap">
-            <i-feather name="file-text" class="feather-sm mr-1"></i-feather>
-            <span *ngIf="active === 1 && screenMode === 'small'">{{'Reservations'}}</span>
-            <span *ngIf="screenMode !== 'small'">{{'Reservations'}}</span>
-          </a>
-
-          <ng-template ngbNavContent>
-            <app-hotel-reservations></app-hotel-reservations>
-          </ng-template>
-
-
-        </li>
-
         <li ngbnavitem="" class="nav-item d-flex align-items-start  " [style]="'margin-left: auto;'">
           <!-- *ngIf="screenMode !== 'small'"  class="details-buttons"-->
           <div *ngIf="screenMode !== 'medium' && screenMode !== 'small'">

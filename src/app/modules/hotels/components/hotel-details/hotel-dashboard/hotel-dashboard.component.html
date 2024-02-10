@@ -1,1 +1,71 @@
-<p>hotel-dashboard works!</p>
+<div class="col-sm-12 col-lg-12" >
+  <!--  <div  class="progress indeterminate"></div>-->
+  <div class="progress indeterminate"  *ngIf="loadingWebSiteAndSection=== false" ></div>
+<br>
+
+<div class="row d-flex justify-content-center" >
+  <div class="progress indeterminate"  *ngIf="loadingWebSiteForEachStatus=== false" ></div>
+
+  <div class="col-lg-3">
+    <div class="card bg-primary text-white">
+      <div class="card-body p-2">
+        <div class="d-flex no-block align-items-center">
+          <a href="JavaScript: void(0);">
+            <i-feather  name="clipboard"   style="width: 2em; height: 2em; color: white"></i-feather>
+          </a>
+          <div class="m-l-15 m-t-10">
+            <h5 class="font-medium m-b-0 text-white">En préparation</h5>
+            <h5 class=" text-white">{{prep}}</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-3">
+    <div class="card  bg-secondary text-white">
+      <div class="card-body p-2">
+        <div class="d-flex no-block align-items-center">
+          <a href="JavaScript: void(0);">
+            <i-feather  name="tool"   style="width: 2em; height: 2em; color: white"></i-feather>
+          </a>
+          <div class="m-l-15 m-t-10">
+            <h5 class="font-medium m-b-0 text-white">En maintenance</h5>
+            <h5 class=" text-white">{{maint}}</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-3">
+    <div class="card  bg-success text-white">
+      <div class="card-body p-2">
+        <div class="d-flex no-block align-items-center">
+          <a href="JavaScript: void(0);">
+            <i-feather  name="check-circle"   style="width: 2em; height: 2em; color: white"></i-feather>
+          </a>
+          <div class="m-l-15 m-t-10">
+            <h5 class="font-medium m-b-0 text-white">Actives</h5>
+            <h5 class=" text-white">{{active}}</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="row d-flex justify-content-center">
+    <div style="width: 35%">
+      <p-chart type="pie" [data]="data" [options]="chartOptions"></p-chart>
+    </div>
+
+    <div class="card" style="width: 65%">
+      <h5>Basic</h5>
+      <p-chart type="line" [data]="basicData" [options]="basicOptions"></p-chart>
+    </div>
+  </div>
+
+</div>
+
+
