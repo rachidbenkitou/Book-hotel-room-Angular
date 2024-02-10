@@ -26,6 +26,7 @@ import {DataViewModule} from "primeng/dataview";
 import {DropdownModule} from "primeng/dropdown";
 import {InputTextModule} from "primeng/inputtext";
 import {ChartModule} from "primeng/chart";
+import {NgApexchartsModule} from "ng-apexcharts";
 
 
 
@@ -40,26 +41,27 @@ import {ChartModule} from "primeng/chart";
     HotelDashboardComponent
 
   ],
-    imports: [
-        ButtonModule,
-        CommonModule,
-        HttpClientModule,
-        RouterModule.forChild(HotelRoutes),
-        ReactiveFormsModule,
-        FormsModule,
-        NgbModule,
-        FeatherModule,
-        NgSelectModule,
-        SharedComponentsModule,
-        NgxDatatableModule,
-        SharedModule,
-        TableModule,
-        RatingModule,
-        DataViewModule,
-        DropdownModule,
-        InputTextModule,
-        ChartModule,
-    ],
+  imports: [
+    ButtonModule,
+    CommonModule,
+    HttpClientModule,
+    RouterModule.forChild(HotelRoutes),
+    ReactiveFormsModule,
+    FormsModule,
+    NgbModule,
+    FeatherModule,
+    NgSelectModule,
+    SharedComponentsModule,
+    NgxDatatableModule,
+    SharedModule,
+    TableModule,
+    RatingModule,
+    DataViewModule,
+    DropdownModule,
+    InputTextModule,
+    ChartModule,
+    NgApexchartsModule,
+  ],
   exports: [HotelComponent],
   providers: [HotelService],
 })

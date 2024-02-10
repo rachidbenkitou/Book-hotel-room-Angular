@@ -3,7 +3,7 @@
   <div class="progress indeterminate"  *ngIf="loadingWebSiteAndSection=== false" ></div>
 <br>
 
-<div class="row d-flex justify-content-center" >
+  <div class="row d-flex justify-content-center mb-5">
   <div class="progress indeterminate"  *ngIf="loadingWebSiteForEachStatus=== false" ></div>
 
   <div class="col-lg-3">
@@ -55,17 +55,26 @@
   </div>
 </div>
 
-  <div class="row d-flex justify-content-center">
-    <div style="width: 35%">
-      <p-chart type="pie" [data]="data" [options]="chartOptions"></p-chart>
+  <div class="row d-flex justify-content-around">
+    <div style="width: 40%">
+      <div id="chart">
+        <apx-chart
+          [series]="chartOptions.series"
+          [chart]="chartOptions.chart"
+          [labels]="chartOptions.labels"
+          [responsive]="chartOptions.responsive"
+        ></apx-chart>
+      </div>
     </div>
 
-    <div class="card" style="width: 65%">
+    <div class="card" style="width: 60%">
       <h5>Basic</h5>
       <p-chart type="line" [data]="basicData" [options]="basicOptions"></p-chart>
     </div>
   </div>
 
 </div>
+
+
 
 

@@ -1,5 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from "@angular/core";
+import { ChartComponent } from "ng-apexcharts";
+
+import {
+  ApexNonAxisChartSeries,
+  ApexResponsive,
+  ApexChart
+} from "ng-apexcharts";
 import {Subscription} from "rxjs";
+
+export type ChartOptions = {
+  series: ApexNonAxisChartSeries;
+  chart: ApexChart;
+  responsive: ApexResponsive[];
+  labels: any;
+};
 
 @Component({
   selector: 'app-hotel-dashboard',
@@ -17,24 +31,18 @@ export class HotelDashboardComponent implements OnInit {
 
   data: any;
 
-  chartOptions: any;
-
-  subscription: Subscription;
 
   //**********************
 
   basicData: any;
 
-  multiAxisData: any;
-
-  multiAxisOptions: any;
-
-  lineStylesData: any;
-
   basicOptions: any;
+  @ViewChild("chart") chart: ChartComponent;
+  public chartOptions: Partial<ChartOptions>;
 
+  constructor() {
 
-  constructor() {}
+  }
 
   ngOnInit() {
     this.basicData = {
@@ -50,21 +58,24 @@ export class HotelDashboardComponent implements OnInit {
       ]
     };
 
-    this.data = {
-      labels: ['A','B','C'],
-      datasets: [
+    this.chartOptions = {
+      series: [44, 55, 13, 43, 22],
+      chart: {
+        // width: 300,
+        type: "pie"
+      },
+      labels: ["Team A", "Team B", "Team C", "Team D", "Team E"],
+      responsive: [
         {
-          data: [300, 50, 100],
-          backgroundColor: [
-            "#42A5F5",
-            "#66BB6A",
-            "#FFA726"
-          ],
-          hoverBackgroundColor: [
-            "#64B5F6",
-            "#81C784",
-            "#FFB74D"
-          ]
+          breakpoint: 480,
+          options: {
+            chart: {
+              // width: 200
+            },
+            legend: {
+              position: "bottom"
+            }
+          }
         }
       ]
     };
