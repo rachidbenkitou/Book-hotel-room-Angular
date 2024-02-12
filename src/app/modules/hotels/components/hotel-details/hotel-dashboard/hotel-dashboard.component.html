@@ -14,8 +14,8 @@
             <i-feather  name="clipboard"   style="width: 2em; height: 2em; color: white"></i-feather>
           </a>
           <div class="m-l-15 m-t-10">
-            <h5 class="font-medium m-b-0 text-white">En préparation</h5>
-            <h5 class=" text-white">{{prep}}</h5>
+            <h5 class="font-medium m-b-0 text-white">Number of rooms</h5>
+            <h5 class=" text-white">{{numberOfRooms}}</h5>
           </div>
         </div>
       </div>
@@ -27,11 +27,11 @@
       <div class="card-body p-2">
         <div class="d-flex no-block align-items-center">
           <a href="JavaScript: void(0);">
-            <i-feather  name="tool"   style="width: 2em; height: 2em; color: white"></i-feather>
+            <i-feather  name="tool"   style="width: 0em; height: 2em; color: white"></i-feather>
           </a>
           <div class="m-l-15 m-t-10">
-            <h5 class="font-medium m-b-0 text-white">En maintenance</h5>
-            <h5 class=" text-white">{{maint}}</h5>
+            <h5 class="font-medium m-b-0 text-white">Number of reservations</h5>
+            <h5 class=" text-white">{{numberOfReservations}}</h5>
           </div>
         </div>
       </div>
@@ -46,8 +46,8 @@
             <i-feather  name="check-circle"   style="width: 2em; height: 2em; color: white"></i-feather>
           </a>
           <div class="m-l-15 m-t-10">
-            <h5 class="font-medium m-b-0 text-white">Actives</h5>
-            <h5 class=" text-white">{{active}}</h5>
+            <h5 class="font-medium m-b-0 text-white">Total Turnover</h5>
+            <h5 class="text-white">{{ sumReservationsPrice | currency: 'USD' }}</h5>
           </div>
         </div>
       </div>
@@ -68,7 +68,7 @@
     </div>
 
     <div class="card" style="width: 60%">
-      <h5>Basic</h5>
+      <h5>Price history per year</h5>
       <p-chart type="line" [data]="basicData" [options]="basicOptions"></p-chart>
     </div>
   </div>
