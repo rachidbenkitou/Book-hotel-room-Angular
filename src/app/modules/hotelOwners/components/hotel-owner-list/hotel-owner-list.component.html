@@ -1,0 +1,156 @@
+<!--<ngx-datatable class="material" [headerHeight]="50" [limit]="tableLimit" [columnMode]="'force'"-->
+<!--               [footerHeight]="50" [rowHeight]="'auto'" [scrollbarH]="false" [sorts]="[{prop: 'id', dir: 'desc'}]"-->
+<!--               [rows]="hotelList">-->
+
+<!--  <ngx-datatable-column [width]="70" [maxWidth]="100" name="Id" prop="id">-->
+<!--    <ng-template let-row="row" ngx-datatable-cell-template class="font-16">-->
+<!--      {{row?.id}}-->
+<!--    </ng-template>-->
+<!--  </ngx-datatable-column>-->
+
+<!--  <ngx-datatable-column [width]="100" [maxWidth]="120" name="Image">-->
+<!--    <ng-template let-row="row" ngx-datatable-cell-template class="font-16">-->
+<!--      <div class="image-container ">-->
+<!--        <img [src]=row?.defaultImage [alt]="row?.defaultImage" class="image"-->
+<!--             (click)="showProductImages(row?.defaultImage, row?.id)">-->
+<!--      </div>-->
+<!--    </ng-template>-->
+<!--  </ngx-datatable-column>-->
+
+<!--  <ngx-datatable-column [width]="140" [maxWidth]="220" name="Name" prop="name">-->
+<!--    <ng-template let-row="row" ngx-datatable-cell-template class="font-16">-->
+<!--      {{row?.name}}-->
+<!--    </ng-template>-->
+<!--  </ngx-datatable-column>-->
+
+
+<!--  <ngx-datatable-column [width]="140" [maxWidth]="220" name="City" prop="cityName">-->
+<!--    <ng-template let-row="row" ngx-datatable-cell-template class="font-16">-->
+<!--      {{row?.cityName}}-->
+<!--    </ng-template>-->
+<!--  </ngx-datatable-column>-->
+
+<!--  <ngx-datatable-column [width]="140" [maxWidth]="220" name="Address" prop="address">-->
+<!--    <ng-template let-row="row" ngx-datatable-cell-template class="font-16">-->
+<!--      {{row?.address}}-->
+<!--    </ng-template>-->
+<!--  </ngx-datatable-column>-->
+
+<!--  <ngx-datatable-column [width]="140" [maxWidth]="220" name="Emails" prop="defaultEmail">-->
+<!--    <ng-template let-row="row" ngx-datatable-cell-template class="font-16">-->
+<!--      {{row?.defaultEmail}}-->
+<!--    </ng-template>-->
+<!--  </ngx-datatable-column>-->
+
+<!--  <ngx-datatable-column [width]="140" [maxWidth]="220" name="Phones" prop="defaultPhoneNumber">-->
+<!--    <ng-template let-row="row" ngx-datatable-cell-template class="font-16">-->
+<!--      {{row?.defaultPhoneNumber}}-->
+<!--    </ng-template>-->
+<!--  </ngx-datatable-column>-->
+
+<!--  <ngx-datatable-column [width]="120" [maxWidth]="180" name="Status" prop="status">-->
+<!--    <ng-template let-row="row" ngx-datatable-cell-template class="font-16">-->
+<!--      <ng-container *ngIf="row?.status === 'active'; else noTemplate">-->
+<!--        <span class="badge badge-success px-1" style="font-size: 12px"> active</span>-->
+<!--      </ng-container>-->
+<!--      <ng-template #noTemplate>-->
+<!--        <span class="badge badge-danger px-1" style="font-size: 12px"> inactive </span>-->
+<!--      </ng-template>-->
+<!--    </ng-template>-->
+<!--  </ngx-datatable-column>-->
+
+
+<!--  <ngx-datatable-column name="Action" [sortable]="false" [width]="150" [maxWidth]="250">-->
+<!--    <ng-template let-row="row" ngx-datatable-cell-template>-->
+<!--      <a class="link cursor-pointer mr-2" ngbTooltip="Afficher" (click)="onDisplay(row)">-->
+<!--        <i-feather name="eye" class="feather-sm"></i-feather> &lt;!&ndash; <i class="icon-eye"></i> &ndash;&gt;-->
+<!--      </a>-->
+<!--      <ng-container>-->
+<!--        <a class="link cursor-pointer mr-2" ngbTooltip="Modifier" (click)="navigateToEditPage(row)">-->
+<!--          <i-feather name="edit-3" class="feather-sm"></i-feather> &lt;!&ndash;<i class="fas fa-pencil-alt"></i> &ndash;&gt;-->
+<!--        </a>-->
+<!--      </ng-container>-->
+<!--      <ng-container>-->
+<!--        <a class="link cursor-pointer mr-2" ngbTooltip="Supprimer"-->
+<!--           (click)="onOpenModal(deleteProductModal,row, 'delete')">-->
+<!--          <i-feather name="trash-2" class="feather-sm"></i-feather>-->
+<!--        </a>-->
+<!--      </ng-container>-->
+
+<!--    </ng-template>-->
+<!--  </ngx-datatable-column>-->
+
+
+<!--</ngx-datatable>-->
+
+
+<p-table [value]="hotelList" [paginator]="true" [rows]="rowsPerPage" [rowsPerPageOptions]="[10, 20, 30, 100]"
+         [sortMode]="'multiple'"  [tableStyle]="{'min-width': '90rem'}">
+  <ng-template pTemplate="header">
+    <tr>
+      <th pSortableColumn="id" style="width:100px">ID <p-sortIcon field="id"></p-sortIcon></th>
+      <th pSortableColumn="defaultImage">Image <p-sortIcon field="defaultImage"></p-sortIcon></th>
+      <th pSortableColumn="name">Name <p-sortIcon field="name"></p-sortIcon></th>
+      <th pSortableColumn="cityName">City <p-sortIcon field="cityName"></p-sortIcon></th>
+      <th pSortableColumn="address">Address <p-sortIcon field="address"></p-sortIcon></th>
+      <th pSortableColumn="defaultEmail">Emails <p-sortIcon field="defaultEmail"></p-sortIcon></th>
+      <th pSortableColumn="defaultPhoneNumber">Phones <p-sortIcon field="defaultPhoneNumber"></p-sortIcon></th>
+      <th pSortableColumn="status">Status <p-sortIcon field="status"></p-sortIcon></th>
+      <th>Action</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-hotel>
+    <tr>
+      <td>{{hotel.id}}</td>
+      <td><img [src]="'assets/showcase/images/demo/product/' + hotel.image" [alt]="hotel.name" width="100" class="shadow-4" /></td>
+      <td>{{hotel.name}}</td>
+      <td>{{hotel.cityName}}</td>
+      <td>{{hotel.address}}</td>
+      <td>{{hotel.defaultEmail}}</td>
+      <td>{{hotel.defaultPhoneNumber}}</td>
+      <td>
+        <span *ngIf="hotel.status === 'active'" class="badge badge-success px-1" style="font-size: 12px"> active</span>
+        <span *ngIf="hotel.status !== 'active'" class="badge badge-danger px-1" style="font-size: 12px"> inactive</span>
+      </td>
+      <td>
+        <a class="link cursor-pointer mr-2" ngbTooltip="Details" (click)="navigateToDetailsPage(hotel)">
+          <i-feather name="eye" class="feather-sm"></i-feather>
+        </a>
+        <a class="link cursor-pointer mr-2" ngbTooltip="Modifier" (click)="navigateToEditPage(hotel)">
+          <i-feather name="edit-3" class="feather-sm"></i-feather>
+        </a>
+        <a class="link cursor-pointer mr-2" ngbTooltip="Supprimer"
+           (click)="onOpenModal(deleteProductModal, hotel, 'delete')">
+          <i-feather name="trash-2" class="feather-sm"></i-feather>
+        </a>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
+
+
+<!-- Delete Modal -->
+<ng-template #deleteProductModal>
+  <div>
+    <div class="modal-header">
+      <h5 class="modal-title" id="deleteModelLabel">Attention </h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <p>Do you want to delete the product #{{deletedHotel?.id}}? </p>
+      <div class="modal-footer">
+        <span *ngIf="sppinerDeleteDisplaying" class="spinner-grow spinner-grow-sm" role="status"
+              aria-hidden="true"></span>
+        <button id="submitDelete"
+                class="btn btn-primary"
+                data-dismiss="modal" (click)="deleteProductFunction(deletedHotel?.id)">Supprimer
+        </button>
+        <button type="button" class="btn btn-outline-dark" data-dismiss="modal" (click)="OncloseModal()">Fermer</button>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+
