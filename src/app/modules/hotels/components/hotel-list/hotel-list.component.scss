@@ -3,3 +3,6 @@
   margin: 0 auto 2rem auto;
   display: block;
 }
+:host ::ng-deep .pi-sort-alt:before {
+  font-size: 12px;
+}

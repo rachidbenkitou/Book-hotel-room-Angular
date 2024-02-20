@@ -85,10 +85,10 @@
 
 
 <p-table [value]="hotelList" [paginator]="true" [rows]="rowsPerPage" [rowsPerPageOptions]="[10, 20, 30, 100]"
-         [sortMode]="'multiple'"  [tableStyle]="{'min-width': '90rem'}">
+         [sortMode]="'multiple'" styleClass="p-datatable-sm"  [tableStyle]="{'min-width': '90rem'}" >
   <ng-template pTemplate="header">
     <tr>
-      <th pSortableColumn="id" style="width:100px">ID <p-sortIcon field="id"></p-sortIcon></th>
+      <th pSortableColumn="id">ID <p-sortIcon field="id" ></p-sortIcon></th>
       <th pSortableColumn="defaultImage">Image <p-sortIcon field="defaultImage"></p-sortIcon></th>
       <th pSortableColumn="name">Name <p-sortIcon field="name"></p-sortIcon></th>
       <th pSortableColumn="cityName">City <p-sortIcon field="cityName"></p-sortIcon></th>
@@ -128,8 +128,8 @@
   </ng-template>
 </p-table>
 
-
 <!-- Delete Modal -->
+
 <ng-template #deleteProductModal>
   <div>
     <div class="modal-header">
