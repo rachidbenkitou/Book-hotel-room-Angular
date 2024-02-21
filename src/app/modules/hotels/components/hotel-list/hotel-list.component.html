@@ -88,8 +88,9 @@
          [sortMode]="'multiple'" styleClass="p-datatable-sm"  [tableStyle]="{'min-width': '90rem'}" >
   <ng-template pTemplate="header">
     <tr>
+      <th>Image</th>
       <th pSortableColumn="id">ID <p-sortIcon field="id" ></p-sortIcon></th>
-      <th pSortableColumn="defaultImage">Image <p-sortIcon field="defaultImage"></p-sortIcon></th>
+      <th pSortableColumn="hotelOwner">HotelOwner <p-sortIcon field="defaultImage"></p-sortIcon></th>
       <th pSortableColumn="name">Name <p-sortIcon field="name"></p-sortIcon></th>
       <th pSortableColumn="cityName">City <p-sortIcon field="cityName"></p-sortIcon></th>
       <th pSortableColumn="address">Address <p-sortIcon field="address"></p-sortIcon></th>
@@ -101,13 +102,14 @@
   </ng-template>
   <ng-template pTemplate="body" let-hotel>
     <tr>
-      <td>{{hotel.id}}</td>
       <td><img [src]="'assets/showcase/images/demo/product/' + hotel.image" [alt]="hotel.name" width="100" class="shadow-4" /></td>
-      <td>{{hotel.name}}</td>
-      <td>{{hotel.cityName}}</td>
-      <td>{{hotel.address}}</td>
-      <td>{{hotel.defaultEmail}}</td>
-      <td>{{hotel.defaultPhoneNumber}}</td>
+      <td>{{hotel.id}}</td>
+      <td>{{hotel?.name}}</td>
+      <td>{{hotel?.name}}</td>
+      <td>{{hotel?.cityName}}</td>
+      <td>{{hotel?.address}}</td>
+      <td>{{hotel?.defaultEmail}}</td>
+      <td>{{hotel?.defaultPhoneNumber}}</td>
       <td>
         <span *ngIf="hotel.status === 'active'" class="badge badge-success px-1" style="font-size: 12px"> active</span>
         <span *ngIf="hotel.status !== 'active'" class="badge badge-danger px-1" style="font-size: 12px"> inactive</span>

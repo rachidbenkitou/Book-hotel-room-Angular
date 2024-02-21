@@ -1,10 +1,8 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Product} from "../../../products/models/product";
 import {UntypedFormBuilder, UntypedFormGroup} from "@angular/forms";
 import {CategoryService} from "../../services/category.service";
 import {HttpErrorResponse} from "@angular/common/http";
 import {Category} from "../../models/category";
-import {ProductService} from "../../../products/services/product.service";
 
 @Component({
   selector: 'app-products-of-a-category',
@@ -23,7 +21,7 @@ export class ProductsOfACategoryComponent implements OnInit {
 
   productForm!: UntypedFormGroup;
 
-  productList: Product[] = [];
+  productList: any[] = [];
 
   categoryList: Category[] = [];
 
@@ -34,12 +32,12 @@ export class ProductsOfACategoryComponent implements OnInit {
 
   constructor(
     private formBuilder: UntypedFormBuilder,
-    private productService: ProductService,
+    // private productService: ProductService,
     private categoryService: CategoryService
   ) {
-    productService.reload.subscribe(ev => {
-      this.reset()
-    })
+    // productService.reload.subscribe(ev => {
+    //   this.reset()
+    // })
   }
 
 
@@ -52,27 +50,27 @@ export class ProductsOfACategoryComponent implements OnInit {
   }
 
   public getProducts(id?: number, name?: string, categoryId?: number, visibility?: string): void {
-    this.loading = true
-    const submitButton = (document.getElementById('find-product-form') as HTMLInputElement);
-    submitButton.disabled = true
-    this.productService.changeLoadingState(true)
-    this.isCollapsed1 = false
-    this.productService.findProduct(id, name, this.categoryId, visibility).subscribe(
-      (response: any[]) => {
-        this.productList = response;
-      },
-      (error: HttpErrorResponse) => {
-        this.loading = false;
-        submitButton.disabled = false
-        this.productService.changeLoadingState(false)
-      },
-      () => {
-        submitButton.disabled = false
-        this.loading = false
-        this.productService.changeLoadingState(false)
-
-      }
-    );
+    // this.loading = true
+    // const submitButton = (document.getElementById('find-product-form') as HTMLInputElement);
+    // submitButton.disabled = true
+    // this.productService.changeLoadingState(true)
+    // this.isCollapsed1 = false
+    // this.productService.findProduct(id, name, this.categoryId, visibility).subscribe(
+    //   (response: any[]) => {
+    //     this.productList = response;
+    //   },
+    //   (error: HttpErrorResponse) => {
+    //     this.loading = false;
+    //     submitButton.disabled = false
+    //     this.productService.changeLoadingState(false)
+    //   },
+    //   () => {
+    //     submitButton.disabled = false
+    //     this.loading = false
+    //     this.productService.changeLoadingState(false)
+    //
+    //   }
+    // );
   }
 
 

@@ -17,25 +17,28 @@ import { ProductsOfACategoryComponent } from './components/products-of-a-categor
 import { ImageUploadComponent } from '../shared-components/images/image-upload/image-upload.component';
 
 @NgModule({
-  declarations: [
-    CategoryAddEditComponent,
-    CategoryDetailsComponent,
-    CategoryListComponent,
-    CategorySearchComponent,
-    CategoryPageComponent,
-    ProductsOfACategoryComponent,
-    ImageUploadComponent
-  ],
-  imports: [
-    RouterModule.forChild(CategoryRoutes),
-    NgbModule,
-    CommonModule,
-    ReactiveFormsModule,
-    NgSelectModule,
-    FeatherModule,
-    NgxDatatableModule,
-    SharedComponentsModule,
-  ]
+    declarations: [
+        CategoryAddEditComponent,
+        CategoryDetailsComponent,
+        CategoryListComponent,
+        CategorySearchComponent,
+        CategoryPageComponent,
+        ProductsOfACategoryComponent,
+        ImageUploadComponent
+    ],
+    exports: [
+        ImageUploadComponent
+    ],
+    imports: [
+        RouterModule.forChild(CategoryRoutes),
+        NgbModule,
+        CommonModule,
+        ReactiveFormsModule,
+        NgSelectModule,
+        FeatherModule,
+        NgxDatatableModule,
+        SharedComponentsModule,
+    ]
 })
 export class CategoryModule {
 }

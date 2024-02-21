@@ -4,6 +4,8 @@ import {Hotel} from "../../../hotels/models/hotel";
 import {HotelService} from "../../../hotels/services/hotel.service";
 import {CityService} from "../../../cities/services/city.service";
 import {HttpErrorResponse} from "@angular/common/http";
+import {ClientService} from "../../../../clients/services/client.service";
+import {ClientStatusService} from "../../../../clients/services/clientStatus.service";
 
 @Component({
   selector: 'app-hotel-owner-search',
@@ -16,90 +18,86 @@ export class HotelOwnerSearchComponent implements OnInit {
 
   public isCollapsed1 = false;
 
-  hotelForm!: UntypedFormGroup;
+  clientForm!: UntypedFormGroup;
 
-  hotelList: Hotel[] = [];
-
-  cityList: any[] = [];
-
-  statusList: any[] = [
-    {id: 1, name: "active"},
-    {id: 2, name: "inactive"},
-  ]
+  clientList: any[] = [];
+  clientStatusList: any[] = [];
 
   constructor(
     private formBuilder: UntypedFormBuilder,
-    private hotelService: HotelService,
-    private cityService: CityService
+    private clientService: ClientService,
+    private clientStatusService: ClientStatusService
   ) {
-    hotelService.reload.subscribe(ev => {
+    clientService.reload.subscribe(ev => {
       this.reset()
     })
   }
 
 
   initForm() {
-    this.hotelForm = this.formBuilder.group({
-      id: [],
-      name: [],
-      cityId: [],
-      status: [],
+    this.clientForm = this.formBuilder.group({
+      clientId: [],
+      email: [],
+      statusId: [],
+      phoneNumber: [],
     });
   }
 
-  public getHotels(id?: number, name?: string, cityId?: number, status?: string): void {
+  public getClients(clientId?: number, email?: string, phoneNumber?: string, statusId?: number): void {
     this.loading = true
-    const submitButton = (document.getElementById('find-hotel-form') as HTMLInputElement);
+    const submitButton = (document.getElementById('find-client-form') as HTMLInputElement);
     submitButton.disabled = true
-    this.hotelService.changeLoadingState(true)
+    this.clientService.changeLoadingState(true)
     this.isCollapsed1 = false
-    this.hotelService.findHotels(id, name, status, cityId).subscribe(
+    this.clientService.findClients(clientId, email, phoneNumber, statusId).subscribe(
       (response: any[]) => {
-        this.hotelList = response;
+        this.clientList = response;
       },
       (error: HttpErrorResponse) => {
         this.loading = false;
         submitButton.disabled = false
-        this.hotelService.changeLoadingState(false)
+        this.clientService.changeLoadingState(false)
       },
       () => {
         submitButton.disabled = false
         this.loading = false
-        this.hotelService.changeLoadingState(false)
+        this.clientService.changeLoadingState(false)
 
       }
     );
   }
 
-  getCityList() {
+  getClientStatusList() {
     //this.loadingState.emit(true)
-    this.hotelService.changeLoadingState(true)
-    this.cityService.findCities().subscribe(
+    this.clientStatusService.changeLoadingState(true)
+    this.clientStatusService.findClientStatuses().subscribe(
       (response: any[]) => {
-        this.cityList = response;
+        this.clientStatusList = response;
         //this.loadingState.emit(false)
-        this.hotelService.changeLoadingState(false)
+        this.clientStatusService.changeLoadingState(false)
       }
     );
+
   }
+
 
   reset(): void {
-    this.hotelForm.reset()
-    this.getHotels()
+    this.clientForm.reset()
+    this.getClients()
   }
 
   search(): void {
-    this.getHotels(
-      this?.hotelForm.value?.id,
-      this?.hotelForm.value?.name,
-      this?.hotelForm.value?.cityId,
-      this?.hotelForm.value?.status
+    this.getClients(
+      this?.clientForm.value?.clientId,
+      this?.clientForm.value?.email,
+      this?.clientForm.value?.phoneNumber,
+      this?.clientForm.value?.statusId
     )
   }
 
   ngOnInit(): void {
     this.initForm()
-    this.getHotels()
-    this.getCityList()
+    this.getClients()
+    this.getClientStatusList()
   }
 }

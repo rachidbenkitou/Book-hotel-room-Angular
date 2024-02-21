@@ -5,7 +5,6 @@ import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {DataService} from "../../../../shared/services/data.service";
 import {ToastrService} from "ngx-toastr";
 import {HttpErrorResponse} from "@angular/common/http";
-import {ProductService} from "../../../../products/services/product.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {CityService} from "../../../cities/services/city.service";
 import {City} from "../../../cities/models/city";
@@ -35,7 +34,6 @@ export class HotelAddEditComponent implements OnInit {
   editFormList: boolean = false;
 
   constructor(private formBuilder: UntypedFormBuilder,
-              private productService: ProductService,
               private imageService: ImageService,
               private modalService: NgbModal,
               private dataService: DataService,

@@ -11,7 +11,6 @@ import {FeatherModule} from "angular-feather";
 import {JsonFormatPipePipe} from "./pipe/jsonFormat.pipe";
 import {NgxDatatableModule} from "@swimlane/ngx-datatable";
 import {TranslateModule} from "@ngx-translate/core";
-import {ProductListComponent} from "./products/product-list/product-list.component";
 import { UploadMultiImagesComponent } from './images/upload-multi-images/upload-multi-images.component';
 import {TableModule} from "primeng/table";
 
@@ -23,7 +22,6 @@ import {TableModule} from "primeng/table";
     EditViewProfilePictureComponent,
     AlertInfoComponent,
     JsonFormatPipePipe,
-    ProductListComponent,
     UploadMultiImagesComponent
   ],
     exports: [
@@ -31,7 +29,6 @@ import {TableModule} from "primeng/table";
         JsonFormatPipePipe,
         AlertInfoComponent,
         JsonFormatPipePipe,
-        ProductListComponent,
         UploadMultiImagesComponent,
     ],
 

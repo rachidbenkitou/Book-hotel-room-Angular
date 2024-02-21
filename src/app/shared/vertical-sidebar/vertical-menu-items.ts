@@ -26,32 +26,47 @@ export const ROUTES: RouteInfo[] = [
     submenu: []
   },
   {
-    path: '/clients',
-    title: 'Clients',
+    path: '/hotelOwners',
+    title: 'Hotel Owners',
     icon: 'user',
     class: '',
     extralink: false,
     submenu: []
   },
-
   {
-    path: '/WimNotifymodel',
-    title: 'Settings',
-    icon: 'settings',
-    class: 'has-arrow',
+    path: '/rooms',
+    title: 'Reservation Requests',
+    icon: 'Home',
+    class: '',
     extralink: false,
-    //isPro: false,
-    submenu: [
-      {
-        path: '/WimNotify/model',
-        title: 'Model',
-        icon: 'mdi mdi-layers',
-        class: '',
-        extralink: false,
-        //isPro: false,
-        submenu: []
-      },
-    ]
+    submenu: []
   },
+  {
+    path: '/users',
+    title: 'Users',
+    icon: 'user',
+    class: '',
+    extralink: false,
+    submenu: []
+  },
+  // {
+  //   path: '/WimNotifymodel',
+  //   title: 'Settings',
+  //   icon: 'settings',
+  //   class: 'has-arrow',
+  //   extralink: false,
+  //   //isPro: false,
+  //   submenu: [
+  //     {
+  //       path: '/WimNotify/model',
+  //       title: 'Model',
+  //       icon: 'mdi mdi-layers',
+  //       class: '',
+  //       extralink: false,
+  //       //isPro: false,
+  //       submenu: []
+  //     },
+  //   ]
+  // },
 
 ];

@@ -4,19 +4,17 @@ import {DataService} from "../../../../shared/services/data.service";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {ToastrService} from "ngx-toastr";
 import {Router} from "@angular/router";
-import {ProductAddEditComponent} from "../../../../products/components/product-add-edit/product-add-edit.component";
 import {HttpErrorResponse} from "@angular/common/http";
-import {Product} from "../../../../products/models/product";
-import {ProductImagesComponent} from "../../../../products/components/product-images/product-images.component";
 import {HotelService} from "../../services/hotel.service";
 import {Hotel} from "../../models/hotel";
+import {HotelAddEditComponent} from "../hotel-add-edit/hotel-add-edit.component";
 
 @Component({
   selector: 'app-hotel-list',
   templateUrl: './hotel-list.component.html',
   styleUrls: ['./hotel-list.component.scss']
 })
-export class HotelComponent implements OnInit {
+export class HotelListComponent implements OnInit {
   @Input() hotelList: Hotel[] = []
   @Output() getHotels: EventEmitter<any> = new EventEmitter();
   tableLimit: number = 10
@@ -40,11 +38,12 @@ export class HotelComponent implements OnInit {
 
   navigateToDetailsPage(row: any) {
     this.hotelService.editFormList(row);
-    this.router.navigate(['/hotels/details', row.id]);
+    // this.router.navigate(['/hotels/details', row.id]);
+    this.router.navigate([`/hotels/${row.id}/details`]);
   }
 
   onEdit(row) {
-    const dialogRef = this.modalService.open(ProductAddEditComponent, {
+    const dialogRef = this.modalService.open(HotelAddEditComponent, {
       size: "xl",
       backdrop: 'static',
       keyboard: false,
@@ -119,27 +118,28 @@ export class HotelComponent implements OnInit {
     this.tableLimit = this.dataService.tableLimit
   }
 
-  navigateToEditPage(row: Product) {
+  navigateToEditPage(row: Hotel) {
     this.hotelService.editFormList(row)
     this.router.navigate(['/hotels/edit', row?.id]);
   }
 
   showProductImages(productImagePath: string, id: number) {
-    // Extract the part you want by splitting the string and taking the first two segments
-    const parts = productImagePath.split('/');
-    const folderName = parts.slice(0, 2).join('_');
-    const dialogRef = this.modalService.open(ProductImagesComponent, {
-      size: "xl",
-      backdrop: 'static',
-      keyboard: false,
-    });
-    const data = {
-      operation: "view",
-      productFolderImages: folderName,
-      productId: id,
-      item: {}
-    }
-    dialogRef.componentInstance.data = data;
-  }
+  //   // Extract the part you want by splitting the string and taking the first two segments
+  //   const parts = productImagePath.split('/');
+  //   const folderName = parts.slice(0, 2).join('_');
+  //   const dialogRef = this.modalService.open(ProductImagesComponent, {
+  //     size: "xl",
+  //     backdrop: 'static',
+  //     keyboard: false,
+  //   });
+  //   const data = {
+  //     operation: "view",
+  //     productFolderImages: folderName,
+  //     productId: id,
+  //     item: {}
+  //   }
+  //   dialogRef.componentInstance.data = data;
+  // }
+}
 }
 

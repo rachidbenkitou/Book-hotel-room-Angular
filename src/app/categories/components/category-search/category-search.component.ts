@@ -1,6 +1,5 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {UntypedFormBuilder, UntypedFormGroup} from "@angular/forms";
-import {Product} from "../../../products/models/product";
 import {CategoryService} from "../../services/category.service";
 import {HttpErrorResponse} from "@angular/common/http";
 
@@ -19,7 +18,7 @@ export class CategorySearchComponent implements OnInit {
 
   categoryForm!: UntypedFormGroup;
 
-  categoryList: Product[] = [];
+  categoryList: any[] = [];
 
 
   visibilityList: any[] = [

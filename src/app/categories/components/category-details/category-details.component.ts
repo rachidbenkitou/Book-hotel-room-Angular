@@ -1,5 +1,4 @@
 import {ChangeDetectorRef, Component, HostListener, OnInit} from '@angular/core';
-import {ProductService} from "../../../products/services/product.service";
 import {Title} from "@angular/platform-browser";
 import {DataService} from "../../../shared/services/data.service";
 import {ActionsService} from "../../../shared/services/actions.service";
@@ -23,7 +22,7 @@ export class CategoryDetailsComponent implements OnInit {
   active = 1
 
   constructor(
-    private productService: ProductService,
+    // private productService: ProductService,
     private categoryService: CategoryService,
     private titleService: Title,
     public dataService: DataService,
@@ -39,20 +38,20 @@ export class CategoryDetailsComponent implements OnInit {
   }
 
   getProducts() {
-    this.loadingProduct = true;
-    this.productService.findProduct(null, null, this?.categoryId, null)
-      .subscribe(
-        (response) => {
-          this.products = response
-        },
-        (errorGettingByCode) => {
-          //this.router.navigate(['404'])
-          this.loadingProduct = false
-        },
-        () => {
-          this.loadingProduct = false
-        }
-      );
+    // this.loadingProduct = true;
+    // this.productService.findProduct(null, null, this?.categoryId, null)
+    //   .subscribe(
+    //     (response) => {
+    //       this.products = response
+    //     },
+    //     (errorGettingByCode) => {
+    //       //this.router.navigate(['404'])
+    //       this.loadingProduct = false
+    //     },
+    //     () => {
+    //       this.loadingProduct = false
+    //     }
+    //   );
   }
 
   getCategory() {
@@ -142,11 +141,11 @@ export class CategoryDetailsComponent implements OnInit {
   loading: boolean = false
 
   ngOnInit(): void {
-    this.productService.loading$.subscribe(event => {
-      this.loading = event;
-      this.changeDetectorRef.detectChanges()
-
-    })
+    // this.productService.loading$.subscribe(event => {
+    //   this.loading = event;
+    //   this.changeDetectorRef.detectChanges()
+    //
+    // })
     this.onResize()
     this.getProducts()
     this.getCategory()

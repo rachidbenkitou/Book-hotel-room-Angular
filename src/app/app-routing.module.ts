@@ -19,16 +19,12 @@ export const Approutes: Routes = [
         loadChildren: () => import('./modules/hotels/hotels.module').then(m => m.HotelsModule)
       },
       {
-        path: 'products',
-        loadChildren: () => import('./products/product.module').then(m => m.ProductModule)
+        path: 'hotelOwners',
+        loadChildren: () => import('./modules/hotelOwners/hotelOwner.module').then(m => m.HotelOwnersModule)
       },
       {
         path: 'categories',
         loadChildren: () => import('./categories/category.module').then(m => m.CategoryModule)
-      },
-      {
-        path: 'clientOrders',
-        loadChildren: () => import('./clientOrders/clientOrder.module').then(m => m.ClientOrderModule)
       },
       {
         path: 'clients',

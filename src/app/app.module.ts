@@ -39,12 +39,8 @@ import {FeatherModule} from 'angular-feather';
 import {allIcons} from 'angular-feather/icons';
 import localeFr from '@angular/common/locales/fr';
 import {NgxDatatableModule} from "@swimlane/ngx-datatable";
-import { HotelOwnerListComponent } from './modules/hotelOwners/components/hotel-owner-list/hotel-owner-list.component';
-import { HotelOwnerAddEditComponent } from './modules/hotelOwners/components/hotel-owner-add-edit/hotel-owner-add-edit.component';
-import { HotelOwnerSearchComponent } from './modules/hotelOwners/components/hotel-owner-search/hotel-owner-search.component';
 import {SharedModule} from "primeng/api";
 import {TableModule} from "primeng/table";
-import {HotelsModule} from "./modules/hotels/hotels.module";
 
 registerLocaleData(localeFr, 'fr');
 
@@ -71,10 +67,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     BreadcrumbComponent,
     VerticalSidebarComponent,
     HorizontalNavigationComponent,
-    HorizontalSidebarComponent,
-    HotelOwnerListComponent,
-    HotelOwnerAddEditComponent,
-    HotelOwnerSearchComponent,
+    HorizontalSidebarComponent
   ],
   imports: [
     CommonModule,
@@ -107,7 +100,6 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     NgxDatatableModule,
     SharedModule,
     TableModule,
-    HotelsModule,
     //ProspectionModule,
 
   ],

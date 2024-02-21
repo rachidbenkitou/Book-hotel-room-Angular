@@ -1,8 +1,8 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {HotelComponent} from './components/hotel-list/hotel-list.component';
+import {HotelListComponent} from './components/hotel-list/hotel-list.component';
 import {RouterModule} from "@angular/router";
-import {HotelRoutes} from "./hotel.routing";
+import {HotelRoutes} from "./hotel-routing.module";
 import {HttpClientModule} from "@angular/common/http";
 import {HotelService} from "./services/hotel.service";
 
@@ -32,7 +32,7 @@ import {NgApexchartsModule} from "ng-apexcharts";
 
 @NgModule({
   declarations: [
-    HotelComponent,
+    HotelListComponent,
     HotelAddEditComponent,
     HotelSearchComponent,
     HotelsPageComponent,
@@ -62,7 +62,7 @@ import {NgApexchartsModule} from "ng-apexcharts";
     ChartModule,
     NgApexchartsModule,
   ],
-  exports: [HotelComponent],
+  exports: [HotelListComponent],
   providers: [HotelService],
 })
 export class HotelsModule {

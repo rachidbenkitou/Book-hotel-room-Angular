@@ -11,14 +11,14 @@ export const HotelRoutes: Routes = [
     children: [
       {
         path: '',
+        redirectTo: 'search',
         pathMatch: 'full',
-        redirectTo: 'search'
       },
       {
         path: 'search',
         component: HotelSearchComponent,
         data: {
-          title: 'Hotel management',
+          title: 'Hotels management',
           page: 'hotel',
           addButton: true
         },
@@ -44,7 +44,7 @@ export const HotelRoutes: Routes = [
     ]
   },
   {
-    path: 'details/:id',
+    path: ':id/details',
     component: HotelDetailsComponent,
     data: {
       title: 'Hotel details',

@@ -10,7 +10,7 @@
                 <!-- Row of search items -->
                 <div class="row">
 
-                  <div class="col-md-2 ">
+                  <div class="col-md-2">
                     <div class="form-group">
                       <label for="clientId">ID</label>
                       <input type="number" formControlName="clientId" id="clientId" class="form-control"
@@ -18,7 +18,15 @@
                     </div>
                   </div>
 
-                  <div class="col-md-2 ">
+                  <div class="col-md-2 px-md-1">
+                    <div class="form-group">
+                      <label for="cin">CIN</label>
+                      <input type="text" formControlName="email" id="cin" class="form-control"
+                             placeholder="Ex. BK1222"/>
+                    </div>
+                  </div>
+
+                  <div class="col-md-3 px-md-1">
                     <div class="form-group">
                       <label for="email">Email</label>
                       <input type="text" formControlName="email" id="email" class="form-control"
@@ -26,31 +34,13 @@
                     </div>
                   </div>
 
-                  <div class="col-md-2 ">
+                  <div class="col-md-3 px-md-1">
                     <div class="form-group">
-                      <label for="phoneNumber">ID</label>
+                      <label for="phoneNumber">Phone</label>
                       <input type="text" formControlName="phoneNumber" id="phoneNumber" class="form-control"
                              placeholder="Ex. 0644325567"/>
                     </div>
                   </div>
-
-
-                  <div class="col-md-3 px-md-1">
-                    <div class="form-group">
-                      <label>Status</label>
-                      <ng-select
-                        id="statusId"
-                        name="statusId"
-                        formControlName="statusId"
-                        [items]="clientStatusList"
-                        bindValue="id"
-                        bindLabel="name"
-                        notFoundText="no status found"
-                        placeholder="Choose a status">
-                      </ng-select>
-                    </div>
-                  </div>
-
 
                   <div class="col-md-2 search-actions px-0">
                     <div class="form-group">
